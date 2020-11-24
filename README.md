@@ -2,6 +2,7 @@
 
 ## What should be installed
 - Ruby
-- SQLite3
+- SQLite3 / PostgreSQL
 - Node.js
 - Yarn
+- rails webpacker:install
