@@ -1,0 +1,19 @@
+.sign_up {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &_container {
+        padding: 2% 2%;
+        border: 0.2rem solid orange;
+        border-radius: 1rem;
+    }
+
+    &_header {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+}

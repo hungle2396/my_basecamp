@@ -1,0 +1,30 @@
+.navigation {
+
+    &__container {
+        max-width: 160rem;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem 0;
+    }
+
+    &__list {
+        display: flex;
+        list-style: none;
+    }
+
+    &__item {
+        font-size: 2rem;
+        margin-left: 2rem;
+
+        & a:link,
+        & a:visited {
+            text-decoration: none;
+        }
+    }
+
+    &__base {
+        text-decoration: none;
+    }
+}
