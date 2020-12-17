@@ -2,4 +2,11 @@
 <p>Your email is: <%= @user.email %></p>
 <p>Your name is: <%= @user.first_name %></p>
 <p>Your id is: <%= @user.id %></p>
+
 <button><%= link_to "Destroy me", user_path, method: :delete, data: { confirm: "Really delete this user?" } %></button>
+<% if @user.admin? %>
+    <p>You are admin</p>
+    <button>Show all users</button>
+<% else %>
+    <p>you are NOT admin</p>
+<% end %>
