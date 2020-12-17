@@ -6,7 +6,7 @@
 <button><%= link_to "Destroy me", user_path, method: :delete, data: { confirm: "Really delete this user?" } %></button>
 <% if @user.admin? %>
     <p>You are admin</p>
-    <button>Show all users</button>
+    <%= link_to "Show all users", :action => :index %>
 <% else %>
     <p>you are NOT admin</p>
 <% end %>
