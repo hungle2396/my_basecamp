@@ -11,9 +11,8 @@
             <li class="navigation__item"><%= link_to "Support", support_path %></li>
 
             <% if user_signed_in? %>
+                <li class="navigation__item"><%= link_to "Show me", current_user %></li>
                 <li class="navigation__item"><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
-                
-                <li class="navigation__item"><%= link_to "current_user_show", current_user %></li>
             <% else %>
                 <li class="navigation__item"><%= link_to "Sign Up", new_user_registration_path %></li>
                 <li class="navigation__item"><%= link_to "Sign in", new_user_session_path %></li>
