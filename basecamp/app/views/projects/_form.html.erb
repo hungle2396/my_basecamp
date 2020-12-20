@@ -1,0 +1,26 @@
+<% if @project.errors.any? %>
+    <h2>The following errors prevented the project from being saved</h2>
+    <ul>
+        <% @project.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+    </ul>
+    
+<% end %>
+
+<%= form_with(model: @project, local: true) do |f| %>
+    <div class="project__form">
+        <div class="project__form__title__container">
+            <%= f.label :project_title, class: "project__form__title" %><br>
+            <%= f.text_field :title, class: "project__form__textfield" %>
+        </div>
+
+        <div class="project__form__description__container">
+            <%= f.label :project_description, class: "project__form__title" %><br>
+            <%= f.text_area :description, class: "project__form__textarea" %>
+        </div>
+
+        <%= f.submit class: "btn__circle btn__color__yellow__orange project__form__submit" %>
+    </div>
+        
+<% end %>

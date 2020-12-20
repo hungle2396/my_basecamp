@@ -13,8 +13,10 @@ html {
     box-sizing: border-box;
     scroll-behavior: smooth;
     font-size: 62.5%;
+    overflow: hidden;
 }
 
 body {
     font-size: 2rem;
+    background-color: rgb(247, 240, 236);
 }

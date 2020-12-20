@@ -1,10 +1,11 @@
 <header class="header">
-
     <%= render "navigation" %>
     
     <div class="header__content__container">
         <div class="header__content__primary">
-            <h1>How it works Page</h1>
+            <h1>Edit <%= @project.title %></h1>
         </div>
+
+        <%= render "form" %>
     </div>
 </header>

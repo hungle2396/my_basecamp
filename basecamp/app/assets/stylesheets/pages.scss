@@ -2,8 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+@import "./abstract_variables";
 @import "./base_base";
 @import "./components_sign_up_form";
+@import "./components_buttons";
 @import "./layout_footer";
 @import "./layout_grid";
 @import "./layout_header";

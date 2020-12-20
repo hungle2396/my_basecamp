@@ -2,9 +2,13 @@
 
     <%= render "navigation" %>
     
-    <div class="header_content_container">
-        <div class="header_content_primary">
+    <div class="header__content__container">
+        <div class="header__content__primary">
             <h1>Base Camp</h1>
         </div>
+
+        <% if user_signed_in? %>
+            <%= link_to "Your projects", projects_path, class: "btn__circle btn__color__yellow__orange" %>
+        <% end %>
     </div>
 </header>

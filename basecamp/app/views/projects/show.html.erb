@@ -1,0 +1,24 @@
+<header class="header">
+
+    <%= render "navigation" %>
+    
+    <div class="header__content__container">
+        <div class="header__content__primary">
+            <h1><%= @project.title %></h1>
+        </div>
+        
+        <div class="project__btn__invite__container">
+            <a href="#" class="btn__normal">Invite people(coming soon)</a>
+        </div>
+        
+        <div class="project__btns__container">
+            <%= link_to "Back", projects_path, class: "btn__square btn__color__yellow__orange project__btn" %>
+
+            <%= link_to "Edit project", edit_project_path(@project), class: "btn__square btn__color__yellow__orange project__btn" %>
+        
+        
+            <%= link_to "Delete project", project_path(@project), method: :delete, data: { confirm: "Are you sure?" }, class: "btn__square btn__color__yellow__orange project__btn" %>
+        </div>
+        
+    </div>
+</header>

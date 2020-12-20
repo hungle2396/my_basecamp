@@ -1,17 +1,20 @@
 .header {
     width: 100vw;
     height: 100vh;
-    // &_content_container {
-        
-    // }
+    &__content__container {
+        max-width: 120rem;
+        height: auto;
+        margin: 0 auto;
+    }
 
-    &_no_scroll {
+    &__no__scroll {
         overflow: hidden;
     }
 
-    &_content_primary {
+    &__content__primary {
         display: flex;
         justify-content: center;
         font-size: 4rem;
+        margin: 3rem 0;
     }
 }

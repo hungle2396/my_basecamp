@@ -1,0 +1,87 @@
+.project {
+
+    &__btns__container {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    &__btn__container {
+        margin-right: 3rem;
+        display: flex;
+    }
+    
+    &__btn__invite__container {
+        margin-bottom: 2rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__btn {
+        margin-bottom: 5rem;
+    }
+
+    &__list {
+        list-style: none;
+    }
+
+    &__item {
+        border: 0.3rem solid #ec9e0d;
+        padding: 3rem 2rem;
+        width: 30%;
+        height: auto;
+        display: inline-block;
+        border-radius: 1rem;
+        background-image: linear-gradient(to right bottom, #fcfcfc, #e9e4e0);
+        margin: 0 2rem 2rem 0;
+    }
+
+    &__title {
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    &__link {
+        text-decoration: none;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        &:link,
+        &:visited {
+            color: #d68940;
+        }
+    }
+
+    &__description {
+        line-height: 1.3;
+    }
+}
+
+.project__form {
+    width: 40%;
+    margin: 0 auto;
+    border:0.4rem solid rgb(214, 137, 64);
+    border-radius: 1rem;
+    padding: 2rem 4rem;
+    box-shadow: 1rem 1rem #888888;
+
+    &__title__container {
+        margin-bottom: 2rem;
+    }
+
+    &__description__container {
+        margin-bottom: 2rem;
+    }
+
+    &__title {
+        font-size: 2.5rem;
+    }
+
+    &__textfield, &__textarea {
+        width: 80%;
+        padding: 0.5rem 1rem;
+    }
+
+    &__textarea {
+        height: 10rem;
+    }
+}
