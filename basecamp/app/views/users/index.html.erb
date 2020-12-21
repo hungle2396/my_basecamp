@@ -1,5 +1,33 @@
-<% @users.each do |user| %>
-    <li>
-        <%= link_to user.email, user %>
-    </li>
-<% end %>
+<h1>Users</h1>
+<table cellspacing="0" cellpadding="0" border="1">
+    <tr>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Action</th>
+    </tr>
+    <% @users.each do |user| %>
+        <tr>
+            <td><%= link_to user.first_name, user %></td>
+            <td><%= user.last_name %></td>
+            <td><%= user.email %></td>
+            <td>
+                <% if user.admin? %>
+                    Admin
+                <% else %>
+                    User
+                <% end %>
+            </td>
+            <td>
+                <% if user.admin? && !current_user %>
+                    Remove from Admin
+                <% elsif user.admin? && current_user %>
+                    It is me
+                <% else %>
+                    Set to Admin
+                <% end %>
+            </td>
+        </tr>
+    <% end %>
+</table>

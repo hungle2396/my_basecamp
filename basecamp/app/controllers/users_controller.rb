@@ -7,6 +7,14 @@ class UsersController < ApplicationController
         @users = User.all
     end
 
+    def setAdmin
+
+    end
+
+    def removeAdmin
+
+    end
+
     def destroy
         @user = User.find(params[:id])
         @user.destroy
