@@ -7,12 +7,18 @@ class UsersController < ApplicationController
         @users = User.all
     end
 
-    def setAdmin
-
+    def makeAdmin
+        @user = User.find(params[:id])
+        @user.admin = true
+        @user.save
+        redirect_to(users_url)
     end
 
     def removeAdmin
-
+        @user = User.find(params[:id])
+        @user.admin = false
+        @user.save
+        redirect_to(users_url)
     end
 
     def destroy

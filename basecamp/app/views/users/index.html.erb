@@ -20,12 +20,12 @@
                 <% end %>
             </td>
             <td>
-                <% if user.admin? && !current_user %>
-                    Remove from Admin
-                <% elsif user.admin? && current_user %>
-                    It is me
+                <% if user.admin? %>
+                 <%= button_to("Remove admin", {action: "removeAdmin", id: user.id},
+                            {data: { confirm: 'Are you sure?', disable_with: 'loading...' }}) %>
                 <% else %>
-                    Set to Admin
+                <%= button_to("Make admin", {action: "makeAdmin", id: user.id},
+                            {data: { confirm: 'Are you sure?', disable_with: 'loading...' }}) %>
                 <% end %>
             </td>
         </tr>
