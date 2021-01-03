@@ -1,12 +1,15 @@
-<h1>Hello user!</h1> 
-<p>Your email is: <%= @user.email %></p>
-<p>Your name is: <%= @user.first_name %></p>
-<p>Your id is: <%= @user.id %></p>
+<section class="user-information">
+    <h1><%= @user.first_name %></h1> 
+    <p><%= @user.email %></p>
 
-<button><%= link_to "Destroy me", user_path, method: :delete, data: { confirm: "Really delete this user?" } %></button>
-<% if @user.admin? %>
-    <p>You are admin</p>
-    <%= link_to "Show all users", :action => :index %>
-<% else %>
-    <p>you are NOT admin</p>
-<% end %>
+    
+    <% if @user.admin? %>
+        <p>You are admin</p>
+        <p><%= link_to "Show all users", :action => :index %></p>
+    <% else %>
+        <p>you are NOT admin</p>
+    <% end %>
+    <p>
+        <button class="btn__normal btn__color__yellow__orange"><%= link_to "Destroy me", user_path, method: :delete, data: { confirm: "Really delete this user?" } %></button>
+    </p>
+</section>

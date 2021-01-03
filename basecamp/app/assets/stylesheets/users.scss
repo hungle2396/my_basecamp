@@ -18,6 +18,7 @@
     max-width: 80%;
     margin-right: auto;
     margin-left: auto;
+    margin-top: 25px;
     text-align: center;
 } 
 
@@ -27,6 +28,21 @@
 
 .users-page h1 {
     margin-bottom: 20px;
+}
+
+.user-information {
+    width: 30%;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #fef6ec;
+    border-radius: 25px;
+    padding: 25px;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.user-information p {
+    margin-bottom: 10px;
 }
 
 table {
