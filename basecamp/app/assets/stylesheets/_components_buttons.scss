@@ -1,5 +1,6 @@
 /********** Button circle and square shape ******/
-.btn {
+.btn,
+.btn ~ input {
 
     &__normal,
     &__normal:link,

@@ -10,7 +10,7 @@
         </tr>
         <% @users.each do |user| %>
             <tr>
-                <td class="project__link"><%= link_to user.first_name, user %></td>
+                <td class=""><%= link_to user.first_name, user %></td>
                 <td><%= user.last_name %></td>
                 <td><%= user.email %></td>
                 <td>
@@ -20,7 +20,7 @@
                         User
                     <% end %>
                 </td>
-                <td class="project__btn>
+                <td class="action_btn">
                     <% if user.admin? %>
                         <%= button_to("Remove admin", {action: "removeAdmin", id: user.id},
                                 {data: { confirm: 'Are you sure?', disable_with: 'loading...' }}) %>

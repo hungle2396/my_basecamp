@@ -30,10 +30,22 @@
 }
 
 table {
-    border-color: #dcdde1;
+    border-color: #f5f6fa;
 }
 
 th, td {
     padding: 10px;
-    border-color: #dcdde1;
+    border-color: #f5f6fa;
+}
+
+.action_btn input {
+    padding: 10px;
+    border: solid;
+    border-radius: 25px;
+    
+    background-image: linear-gradient(to right, #ec9e0d, #d34d1c);
+    color: #fef6ec;
+    border-color: #f7f0ec;
+    font-weight: bold;
+
 }
