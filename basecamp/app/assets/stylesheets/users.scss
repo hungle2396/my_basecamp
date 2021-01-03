@@ -1,7 +1,39 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+// @import 'bootstrap';
+
+@import "./abstract_variables";
+@import "./base_base";
+@import "./components_sign_up_form";
+@import "./components_buttons";
+@import "./layout_footer";
+@import "./layout_grid";
+@import "./layout_header";
+@import "./layout_navigation";
+@import "./layout_queries";
+@import "./pages_home";
+
+.users-page {
+    max-width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+} 
+
+.users-page .table {
+    width: 100%;
+}
+
+.users-page h1 {
+    margin-bottom: 20px;
+}
+
+table {
+    border-color: #dcdde1;
+}
 
 th, td {
     padding: 10px;
+    border-color: #dcdde1;
 }
