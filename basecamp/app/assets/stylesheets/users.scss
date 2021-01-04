@@ -3,17 +3,6 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 // @import 'bootstrap';
 
-@import "./abstract_variables";
-@import "./base_base";
-@import "./components_sign_up_form";
-@import "./components_buttons";
-@import "./layout_footer";
-@import "./layout_grid";
-@import "./layout_header";
-@import "./layout_navigation";
-@import "./layout_queries";
-@import "./pages_home";
-
 .users-page {
     max-width: 80%;
     margin-right: auto;
@@ -24,10 +13,17 @@
 
 .users-page .table {
     width: 100%;
+    border-color: #f5f6fa;
 }
 
 .users-page h1 {
     margin-bottom: 20px;
+}
+
+.users-page th,
+.users-page td {
+    padding: 10px;
+    border-color: #f5f6fa;
 }
 
 .user-information {
@@ -43,25 +39,4 @@
 
 .user-information p {
     margin-bottom: 10px;
-}
-
-table {
-    border-color: #f5f6fa;
-}
-
-th, td {
-    padding: 10px;
-    border-color: #f5f6fa;
-}
-
-.action_btn input {
-    padding: 10px;
-    border: solid;
-    border-radius: 25px;
-    
-    background-image: linear-gradient(to right, #ec9e0d, #d34d1c);
-    color: #fef6ec;
-    border-color: #f7f0ec;
-    font-weight: bold;
-
 }

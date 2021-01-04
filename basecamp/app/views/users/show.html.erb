@@ -5,7 +5,7 @@
     
     <% if @user.admin? %>
         <p>You are admin</p>
-        <p><%= link_to "Show all users", :action => :index %></p>
+        <p><%= link_to "Show all users", {:action => :index}, class: "project__link"%></p>
     <% else %>
         <p>you are NOT admin</p>
     <% end %>

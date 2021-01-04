@@ -20,13 +20,13 @@
                         User
                     <% end %>
                 </td>
-                <td class="action_btn">
+                <td>
                     <% if user.admin? %>
-                        <%= button_to("Remove admin", {action: "removeAdmin", id: user.id},
-                                {data: { confirm: 'Are you sure?', disable_with: 'loading...' }}) %>
+                        <%= button_to "Remove admin", {action: "removeAdmin", id: user.id},
+                                class: "btn__normal btn__color__yellow__orange" %>
                     <% else %>
                         <%= button_to("Make admin", {action: "makeAdmin", id: user.id},
-                                {data: { confirm: 'Are you sure?', disable_with: 'loading...' }}) %>
+                                class: "btn__normal btn__color__yellow__orange") %>
                     <% end %>
                 </td>
             </tr>
