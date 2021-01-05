@@ -1,5 +1,9 @@
 .project {
 
+    &__header__primary {
+        text-align: center;
+    }
+    
     &__btns__container {
         display: flex;
         justify-content: space-around;

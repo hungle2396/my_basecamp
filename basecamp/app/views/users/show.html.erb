@@ -1,12 +1,15 @@
-<h1>Hello user!</h1> 
-<p>Your email is: <%= @user.email %></p>
-<p>Your name is: <%= @user.first_name %></p>
-<p>Your id is: <%= @user.id %></p>
+<header class="header">
+    <div class="edit__navigation">
+        <%= link_to "Base Camp", root_path, :class => "navigation__base" %>
 
-<button><%= link_to "Destroy me", user_path, method: :delete, data: { confirm: "Really delete this user?" } %></button>
-<% if @user.admin? %>
-    <p>You are admin</p>
-    <%= link_to "Show all users", :action => :index %>
-<% else %>
-    <p>you are NOT admin</p>
-<% end %>
+        <%= link_to "Edit my profile", edit_user_registration_path, class: "btn__circle btn__color__yellow__orange" %>
+    </div>
+
+    <div class="header__content__container">
+        <div class="header__content__primary">
+            <h1>Welcome to basecamp</h1>
+        </div>
+
+        <%= render "projects/project" %>
+    </div>
+</header>

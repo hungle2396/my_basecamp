@@ -8,7 +8,9 @@
         </div>
 
         <% if user_signed_in? %>
-            <%= link_to "Your projects", projects_path, class: "btn__circle btn__color__yellow__orange" %>
+            <%= link_to "Your projects", user_path(@user.id), class: "btn__circle btn__color__yellow__orange" %>
+        <% else %>
+            <%= link_to "Sign Up Now", new_user_registration_path, class: "btn__circle btn__color__yellow__orange" %>
         <% end %>
     </div>
 </header>

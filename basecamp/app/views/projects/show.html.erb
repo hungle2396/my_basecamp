@@ -12,7 +12,7 @@
         </div>
         
         <div class="project__btns__container">
-            <%= link_to "Back", projects_path, class: "btn__square btn__color__yellow__orange project__btn" %>
+            <%= link_to "Back", user_path(@user.id), class: "btn__square btn__color__yellow__orange project__btn" %>
 
             <%= link_to "Edit project", edit_project_path(@project), class: "btn__square btn__color__yellow__orange project__btn" %>
         
