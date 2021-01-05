@@ -1,3 +1,42 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+// @import 'bootstrap';
+
+.users-page {
+    max-width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 25px;
+    text-align: center;
+} 
+
+.users-page .table {
+    width: 100%;
+    border-color: #f5f6fa;
+}
+
+.users-page h1 {
+    margin-bottom: 20px;
+}
+
+.users-page th,
+.users-page td {
+    padding: 10px;
+    border-color: #f5f6fa;
+}
+
+.user-information {
+    width: 30%;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #fef6ec;
+    border-radius: 25px;
+    padding: 25px;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.user-information p {
+    margin-bottom: 10px;
+}

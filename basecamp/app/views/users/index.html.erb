@@ -1,5 +1,35 @@
-<% @users.each do |user| %>
-    <li>
-        <%= link_to user.email, user %>
-    </li>
-<% end %>
+<section class="users-page container">
+    <h1>Users</h1>
+    <table cellspacing="0" cellpadding="0" border="1" class="table table-striped">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Action</th>
+        </tr>
+        <% @users.each do |user| %>
+            <tr>
+                <td class=""><%= link_to user.first_name, user %></td>
+                <td><%= user.last_name %></td>
+                <td><%= user.email %></td>
+                <td>
+                    <% if user.admin? %>
+                        Admin
+                    <% else %>
+                        User
+                    <% end %>
+                </td>
+                <td>
+                    <% if user.admin? %>
+                        <%= button_to "Remove admin", {action: "removeAdmin", id: user.id},
+                                class: "btn__normal btn__color__yellow__orange" %>
+                    <% else %>
+                        <%= button_to("Make admin", {action: "makeAdmin", id: user.id},
+                                class: "btn__normal btn__color__yellow__orange") %>
+                    <% end %>
+                </td>
+            </tr>
+        <% end %>
+    </table>
+</section>
