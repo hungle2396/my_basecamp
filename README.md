@@ -19,8 +19,8 @@ $ git commit -am "make it better"
 $ git push heroku main:master  
 $ heroku run rails db:migrate
 
-## How to see website's features
-- to see all users, go to /users, there you can make website admins or remove admins.  
+## Current website's features
 - you can sign in, log in and sign out
 - you can edit profile or destroy it (within users/edit page)
 - you can create projects within your profile
+- to see all users, go to /users, there you can make website admins or remove admins.  
