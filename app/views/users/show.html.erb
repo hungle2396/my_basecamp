@@ -1,15 +1,15 @@
-<section class="user-information">
-    <h1><%= @user.first_name %></h1> 
-    <p><%= @user.email %></p>
+<header class="header">
+    <div class="edit__navigation">
+        <%= link_to "Base Camp", root_path, :class => "navigation__base" %>
 
-    
-    <% if @user.admin? %>
-        <p>You are admin</p>
-        <p><%= link_to "Show all users", {:action => :index}, class: "project__link"%></p>
-    <% else %>
-        <p>you are NOT admin</p>
-    <% end %>
-    <p>
-        <button class="btn__normal btn__color__yellow__orange"><%= link_to "Destroy me", user_path, method: :delete, data: { confirm: "Really delete this user?" } %></button>
-    </p>
-</section>
+        <%= link_to "Edit my profile", edit_user_registration_path, class: "btn__circle btn__color__yellow__orange" %>
+    </div>
+
+    <div class="header__content__container">
+        <div class="header__content__primary">
+            <h1>Welcome to basecamp</h1>
+        </div>
+
+        <%= render "projects/project" %>
+    </div>
+</header>

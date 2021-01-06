@@ -9,8 +9,9 @@ class ProjectsController < ApplicationController
 
     def create
         @project = Project.new(params.require(:project).permit(:title, :description))
+        @project.user = current_user
         if @project.save
-            redirect_to projects_path(@project)
+            redirect_to project_path(@project)
         else
             render "new"
         end
@@ -18,6 +19,7 @@ class ProjectsController < ApplicationController
 
     def show
         @project = Project.find(params[:id])
+        @user = current_user
     end
 
     def edit
@@ -35,7 +37,13 @@ class ProjectsController < ApplicationController
 
     def destroy
         @project = Project.find(params[:id])
+        @user = current_user
         @project.destroy
-        redirect_to projects_path
+        redirect_to user_path(@user.id)
     end
+
+    private
+        def user_params
+            params.require(:user).permit(:username, :email)
+        end
 end
