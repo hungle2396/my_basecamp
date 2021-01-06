@@ -1,4 +1,6 @@
 # README
+## To see the heroku website
+go to https://basecamp-17.herokuapp.com/users/5
 
 ## This steps are necessary to get the application up and running.
 
