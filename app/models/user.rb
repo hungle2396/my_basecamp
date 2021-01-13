@@ -4,5 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :projects
+  #has_many :projects
+  # WHAT IS :PROJECTS??? or :GROUPS
+
+  has_many :groups
+  has_many :projects, through: :groups
 end

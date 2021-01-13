@@ -9,8 +9,11 @@ class ProjectsController < ApplicationController
 
     def create
         @project = Project.new(params.require(:project).permit(:title, :description))
-        @project.user = current_user
+        @project.users.push(current_user)
         if @project.save
+            #group = Group.find(user_id: current_user.id, project_id: @project.id)
+            #group.is_admin = true
+            #group.save
             redirect_to project_path(@project)
         else
             render "new"
@@ -20,6 +23,7 @@ class ProjectsController < ApplicationController
     def show
         @project = Project.find(params[:id])
         @user = current_user
+        ##
     end
 
     def edit
