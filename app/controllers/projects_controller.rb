@@ -14,9 +14,9 @@ class ProjectsController < ApplicationController
         @project.users.push(current_user)
         if @project.save
             # @group = Group.find(user_id: current_user.id, project_id: @project.id)
-            @group = Group.find_by(user_id: params[:user_id], project_id: params[:project_id])
-            @group.is_admin = true
-            @group.save
+            #@group = Group.find_by(user_id: params[:user_id], project_id: params[:project_id])
+            #@group.is_admin = true
+            #@group.save
             redirect_to project_path(@project)
         else
             render "new"
@@ -26,10 +26,10 @@ class ProjectsController < ApplicationController
     def show
         @project = Project.find(params[:id])
         @user = current_user
-
-        #if @project.user != current_user
-        #    redirect_to user_path(current_user)
-        #end
+        @find_user = @project.users.find_by(id: current_user.id)
+        unless @find_user.present?
+            redirect_to user_path(current_user)
+        end
     end
 
     def edit
