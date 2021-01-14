@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+    before_action :authenticate_user!
+
     def index
         @projects = Project.all
     end
@@ -23,7 +25,10 @@ class ProjectsController < ApplicationController
     def show
         @project = Project.find(params[:id])
         @user = current_user
-        ##
+
+        if @project.user != current_user
+            redirect_to user_path(current_user)
+        end
     end
 
     def edit
