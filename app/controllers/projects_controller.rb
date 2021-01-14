@@ -47,9 +47,9 @@ class ProjectsController < ApplicationController
     def destroy
         @project = Project.find(params[:id])
         @user = current_user
-        @project.groups.delete_all
+        #@project.groups.delete_all
         @project.destroy
-        #redirect_to user_path(@user.id)
+        redirect_to user_path(@user.id)
     end
 
     private

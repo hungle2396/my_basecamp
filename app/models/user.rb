@@ -7,6 +7,6 @@ class User < ApplicationRecord
   #has_many :projects
   # WHAT IS :PROJECTS??? or :GROUPS
 
-  has_many :groups
+  has_many :groups, dependent: :destroy
   has_many :projects, through: :groups
 end
