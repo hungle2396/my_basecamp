@@ -13,10 +13,9 @@ class ProjectsController < ApplicationController
         @project = Project.new(params.require(:project).permit(:title, :description))
         @project.users.push(current_user)
         if @project.save
-            # @group = Group.find(user_id: current_user.id, project_id: @project.id)
-            #@group = Group.find_by(user_id: params[:user_id], project_id: params[:project_id])
-            #@group.is_admin = true
-            #@group.save
+            @group = Group.find_by(user_id: current_user.id, project_id: @project.id)
+            @group.is_admin = true
+            @group.save
             redirect_to project_path(@project)
         else
             render "new"
@@ -48,8 +47,9 @@ class ProjectsController < ApplicationController
     def destroy
         @project = Project.find(params[:id])
         @user = current_user
+        @project.groups.delete_all
         @project.destroy
-        redirect_to user_path(@user.id)
+        #redirect_to user_path(@user.id)
     end
 
     private
