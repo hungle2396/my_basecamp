@@ -1,5 +1,13 @@
 <section class="users-page container">
     <h1>Users</h1>
+
+    <div class="flickr_pagination">
+        <div class="page_info">
+            <%= page_entries_info @users %>
+        </div>
+        <%= will_paginate @users, :container => false %>
+    </div>
+
     <table cellspacing="0" cellpadding="0" border="1" class="table table-striped">
         <tr>
             <th>First Name</th>

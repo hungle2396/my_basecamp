@@ -1,0 +1,16 @@
+.message__container {
+    display: flex;
+    justify-content: center;
+}
+.notice__container, .alert__container {
+    display: inline-block;
+    border-radius: 0.5rem;
+}
+
+.notice__container {
+    background-color: #80db80;
+}
+
+.alert__container {
+    background-color: #df4f4f;
+}

@@ -3,7 +3,13 @@
         <h1>Your Projects</h1>
     </div>
 
-    <%= link_to "Create new project", new_project_path, class: "btn__square btn__color__yellow__orange project__btn" %>
+    <div class="flickr_pagination">
+        <div class="page_info">
+            <%= page_entries_info @projects %>
+        </div>
+        <%= will_paginate @projects, :container => false %>
+    </div>
+
     <% if user_signed_in? %>
         <ul class="project__list">
             <% @projects.each do |project| %>
