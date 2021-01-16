@@ -33,6 +33,11 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
         @user.destroy
 
+        if current_user == @user
+            user_session = nil
+        end
+        
+
         if @user.destroy
             redirect_to root_url, notice: "User deleted."
         end

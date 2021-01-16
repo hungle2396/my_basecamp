@@ -7,6 +7,9 @@
             <th>Email</th>
             <th>Role</th>
             <th>Action</th>
+            <th>Action</th>
+            <th>Action</th>
+            <th>Action</th>
         </tr>
         <% @users.each do |user| %>
             <tr>
@@ -27,6 +30,19 @@
                     <% else %>
                         <%= button_to("Make admin", {action: "makeAdmin", id: user.id},
                                 class: "btn__normal btn__color__yellow__orange") %>
+                    <% end %>
+
+                    
+                </td>
+                <td>
+                    <%= link_to "view user", user_path(user), class: "btn__normal btn__color__yellow__orange" %>
+                </td>
+                <td>
+                    <%= link_to "edit user", edit_user_registration_path(user), class: "btn__normal btn__color__yellow__orange" %>
+                </td>
+                <td>
+                    <% if !user.admin? %>
+                        <%= link_to "delete user", user_path(user), method: :delete, class: "btn__normal btn__color__yellow__orange" %>
                     <% end %>
                 </td>
             </tr>
