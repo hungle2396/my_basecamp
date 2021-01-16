@@ -1,23 +1,19 @@
-<header class="header">
-    <%= render "navigation" %>
-    
-    <div class="header__content__container">
-        <div class="header__content__primary">
-            <h1>Your Projects</h1>
-        </div>
-
-        <%= link_to "Create new project", new_project_path, class: "btn__square btn__color__yellow__orange project__btn" %>
-        <% if user_signed_in? %>
-            <ul class="project__list">
-                <% @projects.each do |project| %>
-                    <li class="project__item">
-                        <h3 class="project__title"><%= link_to project.title, project_path(project), class: "project__link" %></h3>
-                        <p class="project__description">
-                            <%= project.description %>
-                        </p>
-                    </li>
-                <% end %>
-            </ul>
-        <% end %>
+<div class="header__content__container">
+    <div class="header__content__primary">
+        <h1>Your Projects</h1>
     </div>
-</header>
+
+    <%= link_to "Create new project", new_project_path, class: "btn__square btn__color__yellow__orange project__btn" %>
+    <% if user_signed_in? %>
+        <ul class="project__list">
+            <% @projects.each do |project| %>
+                <li class="project__item">
+                    <h3 class="project__title"><%= link_to project.title, project_path(project), class: "project__link" %></h3>
+                    <p class="project__description">
+                        <%= project.description %>
+                    </p>
+                </li>
+            <% end %>
+        </ul>
+    <% end %>
+</div>

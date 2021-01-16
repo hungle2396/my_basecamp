@@ -6,7 +6,7 @@ class UsersController < ApplicationController
         @projects = @user.projects
         print @projects
 
-        if @user != current_user
+        if @user != current_user && !current_user.admin?
             redirect_to user_path(current_user)
         end
     end

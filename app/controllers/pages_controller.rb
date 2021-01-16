@@ -1,6 +1,5 @@
 class PagesController < ApplicationController
   def home
-    @user = current_user
   end
 
   def how_it_works

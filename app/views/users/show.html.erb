@@ -1,15 +1,7 @@
-<header class="header">
-    <div class="edit__navigation">
-        <%= link_to "Base Camp", root_path, :class => "navigation__base" %>
-
-        <%= link_to "Edit my profile", edit_user_registration_path, class: "btn__circle btn__color__yellow__orange" %>
+<div class="header__content__container">
+    <div class="header__content__primary">
+        <h1>Welcome to basecamp</h1>
     </div>
 
-    <div class="header__content__container">
-        <div class="header__content__primary">
-            <h1>Welcome to basecamp</h1>
-        </div>
-
-        <%= render "projects/project" %>
-    </div>
-</header>
+    <%= render "projects/project" %>
+</div>

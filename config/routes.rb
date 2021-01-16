@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get "support", to: "pages#support"
 
   devise_for :users
-  resources :users do
+  resources :users, except: [:edit, :update] do
     member do
       post "makeAdmin"
       post "removeAdmin"
