@@ -19,10 +19,17 @@
             <%= f.label :project_description, class: "project__form__title" %><br>
             <%= f.text_area :description, class: "project__form__textarea" %>
         </div>
-        <div class="field">
-            <%= f.label :images %>
-            <%= f.file_field :images, multiple: true %>
-        </div>
+        <% if @project.uploads.attached? %>
+            <div class="field">
+                <%= f.label :uploads %>
+                <%= f.file_field :uploads, multiple: true %>
+            </div>
+        <% else %>
+            <div class="field">
+                <%= f.label :uploads %>
+                <%= f.file_field :uploads, multiple: true %>
+            </div>
+        <% end %>
         <%= f.submit class: "btn__circle btn__color__yellow__orange project__form__submit" %>
     </div>
         

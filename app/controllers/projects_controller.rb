@@ -16,7 +16,7 @@ class ProjectsController < ApplicationController
             @group = Group.find_by(user_id: current_user.id, project_id: @project.id)
             @group.is_admin = true
             @group.save
-            @project.images.attach(params[:project][:images])
+            ## @project.images.attach(params[:project][:uploads])
             redirect_to project_path(@project)
         else
             render "new"
@@ -53,11 +53,7 @@ class ProjectsController < ApplicationController
     end
 
     private
-        def user_params
-            params.require(:user).permit(:username, :email)
-        end
-
         def project_params
-            params.require(:project).permit(:title, :description, images: [])
+            params.require(:project).permit(:title, :description, uploads: [])
         end
 end

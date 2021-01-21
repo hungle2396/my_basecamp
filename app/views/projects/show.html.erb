@@ -19,12 +19,24 @@
     <p><%= @project.description%></p>
     <div>
         <p>Attachments:</p>
-        <% if @project.images.attached? %>
-            <ul>
-                <% @project.images.each do |image| %>
-                    <li><%= image_tag image, height: '500', width: '500', class: "project_image"%></td>
+        <% if @project.uploads.attached? %>
+            <div>
+                <% @project.uploads.each do |upload| %>
+                    <% if upload.variable? %>
+                        <%#if it is image%>
+                        <%= link_to image_tag(upload.variant(resize: "400x400"), class: "project_upload"), upload %>
+                    <% elsif upload.previewable? %>
+                        <%#if it is pdf%>
+                        <%= link_to image_tag(upload.preview(resize: "400x400"), class: "project_upload"), rails_blob_path(upload, disposition: :attachment) %>
+                    <% elsif upload.image? %>
+                        <%#if it is pdf%>
+                        <%= link_to image_tag(upload, width: 400, class: "project_upload"), upload %>
+                    <% else %>
+                        <%= link_to upload.filename, rails_blob_path(upload, disposition: :attachment) %>
+                    <% end %>
                 <%end%>
-            </ul>
+            </div>
+            <%# @project.uploads.attach(params[:uploads]) %>
         <% end %>
     </div>
 </div>
