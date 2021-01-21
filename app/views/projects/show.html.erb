@@ -15,5 +15,16 @@
     
         <%= link_to "Delete project", project_path(@project), method: :delete, data: { confirm: "Are you sure?" }, class: "btn__square btn__color__yellow__orange project__btn" %>
     </div>
-    
+
+    <p><%= @project.description%></p>
+    <div>
+        <p>Attachments:</p>
+        <% if @project.images.attached? %>
+            <ul>
+                <% @project.images.each do |image| %>
+                    <li><%= image_tag image, height: '500', width: '500', class: "project_image"%></td>
+                <%end%>
+            </ul>
+        <% end %>
+    </div>
 </div>

@@ -19,7 +19,10 @@
             <%= f.label :project_description, class: "project__form__title" %><br>
             <%= f.text_area :description, class: "project__form__textarea" %>
         </div>
-
+        <div class="field">
+            <%= f.label :images %>
+            <%= f.file_field :images, multiple: true %>
+        </div>
         <%= f.submit class: "btn__circle btn__color__yellow__orange project__form__submit" %>
     </div>
         

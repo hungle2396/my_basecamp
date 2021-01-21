@@ -10,12 +10,13 @@ class ProjectsController < ApplicationController
     end
 
     def create
-        @project = Project.new(params.require(:project).permit(:title, :description))
+        @project = Project.new(project_params)
         @project.users.push(current_user)
         if @project.save
             @group = Group.find_by(user_id: current_user.id, project_id: @project.id)
             @group.is_admin = true
             @group.save
+            @project.images.attach(params[:project][:images])
             redirect_to project_path(@project)
         else
             render "new"
@@ -37,7 +38,7 @@ class ProjectsController < ApplicationController
 
     def update
         @project = Project.find(params[:id])
-        if @project.update(params.require(:project).permit(:title, :description))
+        if @project.update(project_params)
             redirect_to @project
         else
             render "edit"
@@ -54,5 +55,9 @@ class ProjectsController < ApplicationController
     private
         def user_params
             params.require(:user).permit(:username, :email)
+        end
+
+        def project_params
+            params.require(:project).permit(:title, :description, images: [])
         end
 end

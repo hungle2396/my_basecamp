@@ -11,15 +11,18 @@
     </div>
 
     <% if user_signed_in? %>
-        <ul class="project__list">
-            <% @projects.each do |project| %>
-                <li class="project__item">
-                    <h3 class="project__title"><%= link_to project.title, project_path(project), class: "project__link" %></h3>
-                    <p class="project__description">
-                        <%= project.description %>
-                    </p>
-                </li>
-            <% end %>
-        </ul>
+            <ul class="project__list">
+                <% @projects.each do |project| %>
+                    
+                    <% link_to(project_path(project)) do %> 
+                        <li class="project__item">
+                                <h3 class="project__title"><%= link_to project.title, project_path(project), class: "project__link" %></h3>
+                                <p class="project__description">
+                                    text
+                                </p>
+                        </li> 
+                    <% end %>
+                <% end %>
+            </ul>
     <% end %>
 </div>
