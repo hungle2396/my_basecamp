@@ -23,31 +23,33 @@
             <div>
                 <% @project.uploads.each do |upload| %>
                     <% if upload.variable? %>
-                        <%#if it is image%>
                         <%= link_to image_tag(upload.variant(resize: "400x400"), class: "project_upload"), upload %>
+                        
                     <% elsif upload.previewable? %>
-                        <%#if it is pdf%>
                         <%= link_to image_tag(upload.preview(resize: "400x400"), class: "project_upload"), rails_blob_path(upload, disposition: :attachment) %>
+        
+                        
                     <% elsif upload.image? %>
-                        <%#if it is pdf%>
                         <%= link_to image_tag(upload, width: 400, class: "project_upload"), upload %>
+                        
                     <% else %>
                         <%= link_to upload.filename, rails_blob_path(upload, disposition: :attachment) %>
+                        
                     <% end %>
+                    <%= button_to "Delete", action: "destroy_upload", params: {upload_id: upload.id} %>
                 <%end%>
             </div>
-            <%# @project.uploads.attach(params[:uploads]) %>
         <% end %>
 
         <%= form_with(model: @project, local: true, url: { action: "add_upload" }, method: "post") do |f| %>
             <div class="project__form">
-               
+
                 <div class="field">
                     <%= f.label :uploads %>
                     <%= f.file_field :uploads, multiple: true %>
                 </div>
-              
-                <%= f.submit class: "btn__circle btn__color__yellow__orange project__form__submit" %>
+
+                <%= f.submit "Add new files", class: "btn__circle btn__color__yellow__orange project__form__submit" %>
             </div>
                 
         <% end %>

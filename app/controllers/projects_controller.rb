@@ -46,6 +46,13 @@ class ProjectsController < ApplicationController
         end
     end
 
+    def destroy
+        @project = Project.find(params[:id])
+        @user = current_user
+        @project.destroy
+        redirect_to user_path(@user.id)
+    end
+
     def add_upload
         @project = Project.find(params[:id])
         print params
@@ -54,11 +61,11 @@ class ProjectsController < ApplicationController
         redirect_to @project
     end
 
-    def destroy
+    def destroy_upload
         @project = Project.find(params[:id])
-        @user = current_user
-        @project.destroy
-        redirect_to user_path(@user.id)
+        upload = ActiveStorage::Attachment.find(params[:upload_id])
+        upload.purge
+        redirect_to @project
     end
 
     private
