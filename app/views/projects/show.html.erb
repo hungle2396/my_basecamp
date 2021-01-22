@@ -38,5 +38,18 @@
             </div>
             <%# @project.uploads.attach(params[:uploads]) %>
         <% end %>
+
+        <%= form_with(model: @project, local: true, url: { action: "add_upload" }, method: "post") do |f| %>
+            <div class="project__form">
+               
+                <div class="field">
+                    <%= f.label :uploads %>
+                    <%= f.file_field :uploads, multiple: true %>
+                </div>
+              
+                <%= f.submit class: "btn__circle btn__color__yellow__orange project__form__submit" %>
+            </div>
+                
+        <% end %>
     </div>
 </div>

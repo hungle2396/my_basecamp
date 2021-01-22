@@ -14,6 +14,10 @@ Rails.application.routes.draw do
       post "removeAdmin"
     end
   end
-  resources :projects
+  resources :projects do
+    member do
+      post "add_upload"
+    end
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

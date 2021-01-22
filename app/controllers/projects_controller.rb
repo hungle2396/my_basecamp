@@ -38,11 +38,20 @@ class ProjectsController < ApplicationController
 
     def update
         @project = Project.find(params[:id])
+        
         if @project.update(project_params)
             redirect_to @project
         else
             render "edit"
         end
+    end
+
+    def add_upload
+        @project = Project.find(params[:id])
+        print params
+        @project.uploads.attach(params[:project][:uploads])
+        @project.save()
+        redirect_to @project
     end
 
     def destroy
