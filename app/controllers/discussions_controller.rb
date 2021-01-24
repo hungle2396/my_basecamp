@@ -1,4 +1,4 @@
-class ThreadsController < ApplicationController
+class DiscussionsController < ApplicationController
     before_action :authenticate_user!
     
     def index
