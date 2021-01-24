@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_14_190850) do
+ActiveRecord::Schema.define(version: 2021_01_24_044346) do
 
   create_table "groups", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -26,6 +26,11 @@ ActiveRecord::Schema.define(version: 2021_01_14_190850) do
     t.string "title"
     t.text "description"
     t.integer "user_id"
+  end
+
+  create_table "threads", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
   end
 
   create_table "users", force: :cascade do |t|
