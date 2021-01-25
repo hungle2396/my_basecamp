@@ -2,6 +2,10 @@ class ProjectsController < ApplicationController
     before_action :authenticate_user!
 
     def index
+        if !current_user.admin?
+            flash[:alert] = "You don't access to this page"
+            redirect_to user_path(current_user)
+        end
         @projects = Project.all.paginate(page: params[:page], per_page: 3)
     end
 

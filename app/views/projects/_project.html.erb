@@ -1,18 +1,31 @@
-<div class="project__container">
-    <div class="project__header__primary">
-        <h1>Your Projects</h1>
+<div class="header__content__container">
+    <div class="header__content__primary">
+        <% if user_signed_in? && current_user.admin? %>
+            <h1>All Projects</h1>
+        <% else %>
+            <h1>Your Projects</h1>
+        <% end %>
     </div>
 
     <%= link_to "Create new project", new_project_path, class: "btn__square btn__color__yellow__orange project__btn" %>
+    
+    <div class="flickr_pagination">
+        <div class="page_info">
+            <%= page_entries_info objects %>
+        </div>
+        <%= will_paginate objects, :container => false %>
+    </div>
 
-    <ul class="project__list">
-        <% @projects.each do |project| %>
-            <li class="project__item">
-                <h3 class="project__title"><%= link_to project.title, project_path(project), class: "project__link" %></h3>
-                <p class="project__description">
-                    <%= project.description %>
-                </p>
-            </li>
-        <% end %>
-    </ul>
+    <% if user_signed_in? %>
+        <ul class="project__list">
+            <% objects.each do |obj| %>
+                <li class="project__item">
+                    <h3 class="project__title"><%= link_to obj.title, project_path(obj), class: "project__link" %></h3>
+                    <p class="project__description">
+                        <%= obj.description %>
+                    </p>
+                </li>
+            <% end %>
+        </ul>
+    <% end %>
 </div>

@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
-        @projects = @user.projects
+        @projects = @user.projects.paginate(page: params[:page], per_page: 3)
         print @projects
 
         if @user != current_user && !current_user.admin?
