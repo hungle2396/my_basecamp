@@ -1,0 +1,30 @@
+.attachments {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.attachment {
+    position: relative;
+    margin-bottom: 20px;
+    height: fit-content;
+}
+
+.attachment__button_wrapper {
+    position: absolute;
+    cursor: pointer;
+    left: 7px;
+    bottom: 14px;
+}
+
+.project_upload {
+    cursor: nesw-resize;
+}
+
+.attachment__add-field {
+    width: fit-content;
+    font-size: 1.5rem;
+    padding: 0.5rem 1.5rem;
+    border: 0.2rem solid #d68940;
+    margin-bottom: 10px;
+}
