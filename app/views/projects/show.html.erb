@@ -15,5 +15,11 @@
     
         <%= link_to "Delete project", project_path(@project), method: :delete, data: { confirm: "Are you sure?" }, class: "btn__square btn__color__yellow__orange project__btn" %>
     </div>
+
+    <div class="project__features__container">
+        <div class="project__features__discussion">
+            <%= link_to "Discussions", discussions_path(id: @project), class: "btn__circle btn__color__yellow__orange" %>
+        </div>
+    </div>
     
 </div>

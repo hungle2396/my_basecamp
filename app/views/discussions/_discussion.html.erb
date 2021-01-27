@@ -1,0 +1,20 @@
+<%= link_to "Create new discussion", new_discussion_path, class: "btn__square btn__color__yellow__orange" %>
+<div class="flickr_pagination">
+        <div class="page_info">
+            <%= page_entries_info objects %>
+        </div>
+        <%= will_paginate objects, :container => false %>
+    </div>
+
+<% if user_signed_in? %>
+    <ul class="project__list">
+        <% objects.each do |object| %>
+            <li class="project__item">
+                <h3 class="project__title"><%= link_to object.title, discussion_path(object), class: "project__link" %></h3>
+                <p class="project__description">
+                    <%= object.description %>
+                </p>
+            </li>
+        <% end %>
+    </ul>
+<% end %>
