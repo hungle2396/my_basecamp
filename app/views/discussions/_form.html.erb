@@ -8,7 +8,9 @@
     
 <% end %>
 
-<%= form_with(model: @discussion, local: true) do |f| %>
+<%= form_with(model: @discussion, local: true, params: {a:"f"}) do |f| %>
+    <%= hidden_field(:project, :id) %>
+
     <div class="project__form">
         <div class="project__form__title__container">
             <%= f.label :discussion_title, class: "project__form__title" %><br>

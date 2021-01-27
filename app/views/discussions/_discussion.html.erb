@@ -1,4 +1,4 @@
-<%= link_to "Create new discussion", new_discussion_path, class: "btn__square btn__color__yellow__orange" %>
+<%= link_to "Create new discussion", new_discussion_path(project_id: @project.id), class: "btn__square btn__color__yellow__orange" %>
 <div class="flickr_pagination">
         <div class="page_info">
             <%= page_entries_info objects %>

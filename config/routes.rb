@@ -14,7 +14,9 @@ Rails.application.routes.draw do
       post "removeAdmin"
     end
   end
-  resources :projects
+  resources :projects do
+    resources :discussions
+  end
 
   resources :discussions
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
