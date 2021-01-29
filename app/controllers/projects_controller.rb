@@ -14,12 +14,13 @@ class ProjectsController < ApplicationController
     end
 
     def create
-        @project = Project.new(params.require(:project).permit(:title, :description))
+        @project = Project.new(project_params)
         @project.users.push(current_user)
         if @project.save
             @group = Group.find_by(user_id: current_user.id, project_id: @project.id)
             @group.is_admin = true
             @group.save
+            ## @project.images.attach(params[:project][:uploads])
             redirect_to project_path(@project)
         else
             render "new"
@@ -41,7 +42,8 @@ class ProjectsController < ApplicationController
 
     def update
         @project = Project.find(params[:id])
-        if @project.update(params.require(:project).permit(:title, :description))
+        
+        if @project.update(project_params)
             redirect_to @project
         else
             render "edit"
@@ -55,8 +57,23 @@ class ProjectsController < ApplicationController
         redirect_to user_path(@user.id)
     end
 
+    def add_upload
+        @project = Project.find(params[:id])
+        print params
+        @project.uploads.attach(params[:project][:uploads])
+        @project.save()
+        redirect_to @project
+    end
+
+    def destroy_upload
+        @project = Project.find(params[:id])
+        upload = ActiveStorage::Attachment.find(params[:upload_id])
+        upload.purge
+        redirect_to @project
+    end
+
     private
-        def user_params
-            params.require(:user).permit(:username, :email)
+        def project_params
+            params.require(:project).permit(:title, :description, uploads: [])
         end
 end
