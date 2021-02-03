@@ -1,4 +1,6 @@
 /********** Button circle and square shape ******/
+// project components 
+
 .btn {
 
     &__normal,
@@ -7,9 +9,16 @@
         font-size: 2rem;
         padding: 1.5rem 3rem;
         text-decoration: none;
-        color: green;
         border: 0.5rem solid #d68940;
         border-radius: 10rem;
+    }
+
+    &__small {
+        font-size: 1.5rem;
+        padding: 0.5rem 1.5rem;
+        border: 0.2rem solid #d68940;
+        border-radius: 10rem;
+        cursor: pointer;
     }
 
     &__circle, &__square,

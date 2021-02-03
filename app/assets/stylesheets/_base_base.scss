@@ -1,3 +1,5 @@
+// tags
+
 * {
     margin: 0;
     padding: 0;
@@ -13,19 +15,16 @@ html {
     box-sizing: border-box;
     scroll-behavior: smooth;
     font-size: 62.5%;
-    overflow: hidden;
 }
 
 body {
     font-size: 2rem;
     background-color: rgb(247, 240, 236);
+    padding-bottom: 25px;
+    font-family: PT Serif;
 }
 
 a {
     color: inherit;
     text-decoration: inherit;
-}
-
-input {
-    margin: inherit;
 }

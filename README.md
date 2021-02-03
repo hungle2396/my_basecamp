@@ -26,3 +26,5 @@ $ heroku run rails db:migrate
 - you can edit profile or destroy it (within users/edit page)
 - you can create projects within your profile
 - to see all users, go to /users, there you can make website admins or remove admins.  
+
+test

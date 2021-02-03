@@ -1,16 +1,17 @@
-<header class="header">
-
-    <%= render "navigation" %>
-    
-    <div class="header__content__container">
-        <div class="header__content__primary">
-            <h1>Base Camp</h1>
-        </div>
-
-        <% if user_signed_in? %>
-            <%= link_to "Your projects", user_path(@user.id), class: "btn__circle btn__color__yellow__orange" %>
-        <% else %>
-            <%= link_to "Sign Up Now", new_user_registration_path, class: "btn__circle btn__color__yellow__orange" %>
-        <% end %>
+<div class="header__content__container">
+    <div class="header__content__primary">
+        <h1>Base Camp</h1>
     </div>
-</header>
+
+    <% if user_signed_in? %>
+        <%= link_to "Your projects", user_path(current_user), class: "btn__circle btn__color__yellow__orange" %>
+
+        <% if current_user.admin? %>
+            <%= link_to "All Users", users_path, class: "btn__circle btn__color__yellow__orange" %>
+
+            <%= link_to "All Projects", projects_path, class: "btn__circle btn__color__yellow__orange" %>
+        <% end %>
+    <% else %>
+        <%= link_to "Sign Up Now", new_user_registration_path, class: "btn__circle btn__color__yellow__orange" %>
+    <% end %>
+</div>

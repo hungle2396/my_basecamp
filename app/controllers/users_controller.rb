@@ -1,11 +1,22 @@
 class UsersController < ApplicationController
+    before_action :authenticate_user!
+
     def show
         @user = User.find(params[:id])
-        @projects = @user.projects
+        @projects = @user.projects.paginate(page: params[:page], per_page: 3)
+        print @projects
+
+        if @user != current_user && !current_user.admin?
+            redirect_to user_path(current_user)
+        end
     end
 
     def index
-        @users = User.all
+        if !current_user.admin?
+            flash[:alert] = "You don't have access to this page"
+            redirect_to user_path(current_user)
+        end
+        @users = User.all.paginate(page: params[:page], per_page: 5)
     end
 
     def makeAdmin
@@ -26,6 +37,10 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
         @user.destroy
 
+        if current_user == @user
+            user_session = nil
+        end
+        
         if @user.destroy
             redirect_to root_url, notice: "User deleted."
         end

@@ -8,12 +8,20 @@ Rails.application.routes.draw do
   get "support", to: "pages#support"
 
   devise_for :users
-  resources :users do
+  resources :users, except: [:edit, :update] do
     member do
       post "makeAdmin"
       post "removeAdmin"
     end
   end
   resources :projects
+
+  resources :discussions
+  resources :projects do
+    member do
+      post "add_upload"
+      post "destroy_upload"
+    end
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
