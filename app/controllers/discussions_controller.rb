@@ -13,7 +13,7 @@ class DiscussionsController < ApplicationController
         @discussion = Discussion.new(discussion_params)
 
         if @discussion.save
-            flash[:notice] = "Created the Discussion successfully!"
+            flash[:notice] = "You Created the Discussion successfully!"
             redirect_to discussion_path(@discussion)
         else
             render "new"
