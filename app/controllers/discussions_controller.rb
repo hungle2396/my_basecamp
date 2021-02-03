@@ -28,6 +28,8 @@ class DiscussionsController < ApplicationController
 
     def show
         @discussion = Discussion.find(params[:id])
+        @comment = Comment.new
+        @comments = @discussion.comments.order("created_at DESC")
     end
 
     def edit

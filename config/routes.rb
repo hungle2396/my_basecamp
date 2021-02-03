@@ -15,9 +15,15 @@ Rails.application.routes.draw do
     end
   end
   resources :projects do
-    resources :discussions
+    resources :discussions do
+      post 'comments', to: 'comments#create'
+    end
   end
 
-  resources :discussions
+  resources :discussions do
+    resources :comments do 
+      post 'comments', to: 'comments#create'
+    end
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
