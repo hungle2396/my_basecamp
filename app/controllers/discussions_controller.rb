@@ -41,7 +41,9 @@ class DiscussionsController < ApplicationController
     end
 
     def destroy
-
+        @discussion = Discussion.find(params[:id])
+        @discussion.destroy
+        redirect_to project_path
     end
 
     private

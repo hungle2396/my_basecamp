@@ -8,7 +8,14 @@
         <div class="comments_item">
             <p class="comment_name"><%= comment.user.username %></p>
             <p class="comment_text"><%= comment.body %></p>
-            
+            <p class="comment_destroy_btn">
+                <%= link_to 'Destroy Comment', [comment.discussion, comment],
+                                method: :delete,
+                                data: { confirm: "Are you sure?" } %>
+            </p>
         </div>
     <% end %>
 </div>
+
+<%= button_to "Delete discution", { action: "destroy", id: @discussion.id },
+                                method: :delete, data: { confirm: "Are you sure?" } %>

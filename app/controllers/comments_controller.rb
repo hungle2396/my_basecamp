@@ -8,9 +8,11 @@ class CommentsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
-  def delete
-    @comment = Comment.find()
-
+  def destroy
+    @discussion = Discussion.find(params[:discussion_id])
+    @comment = @discussion.comments.find(params[:id])
+    @comment.destroy
+    redirect_back(fallback_location: root_path)
   end
 
   private
