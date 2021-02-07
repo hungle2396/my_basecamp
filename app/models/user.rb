@@ -9,4 +9,5 @@ class User < ApplicationRecord
 
   has_many :groups, dependent: :destroy
   has_many :projects, through: :groups
+  has_many :chatmessages
 end
