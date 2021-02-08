@@ -3,7 +3,6 @@ class DiscussionsController < ApplicationController
     
     def index
         @project = Project.find(params[:project_id])
-
         @discussions = @project.discussions.paginate(page: params[:page], per_page: 3)
     end
 
@@ -33,11 +32,16 @@ class DiscussionsController < ApplicationController
     end
 
     def edit
-        
+        @discussion = Discussion.find(params[:id])
     end
 
     def update
-
+        @discussion = Discussion.find(params[:id])
+        if @discussion.update(discussion_params)
+            redirect_to discussion_path(@discussion)
+        else
+            render "edit"
+        end
     end
 
     def destroy

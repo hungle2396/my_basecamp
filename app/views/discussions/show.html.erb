@@ -19,3 +19,4 @@
 
 <%= button_to "Delete discution", { action: "destroy", id: @discussion.id },
                                 method: :delete, data: { confirm: "Are you sure?" } %>
+<%= link_to "Edit discussion", edit_discussion_path(@discussion)%>
