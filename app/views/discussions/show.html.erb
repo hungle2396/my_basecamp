@@ -1,20 +1,8 @@
 <h1>Discuss!!</h1>
-<%= form_with(model: [@discussion, @comment], local: true) do |form|%>
-    <%= form.text_field :body, class: "comment_field"%>
-    <%= form.submit "Comment" %>
-<% end %>
+<%= render "comments/form" %>
+
 <div class="comments">
-    <% @comments.each do |comment| %>
-        <div class="comments_item">
-            <p class="comment_name"><%= comment.user.username %></p>
-            <p class="comment_text"><%= comment.body %></p>
-            <p class="comment_destroy_btn">
-                <%= link_to 'Destroy Comment', [comment.discussion, comment],
-                                method: :delete,
-                                data: { confirm: "Are you sure?" } %>
-            </p>
-        </div>
-    <% end %>
+    <%= render @discussion.comments %>
 </div>
 
 <%= button_to "Delete discution", { action: "destroy", id: @discussion.id },

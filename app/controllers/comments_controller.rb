@@ -8,6 +8,21 @@ class CommentsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
+  def edit
+    @discussion = Discussion.find(params[:discussion_id])
+    @comment = @discussion.comments.find(params[:id])
+  end
+
+  def update
+    @discussion = Discussion.find(params[:discussion_id])
+    @comment = @discussion.comments.find(params[:id])
+    if @comment.update(comment_params)
+      redirect_to @discussion
+    else
+      render 'edit'
+    end
+  end
+
   def destroy
     @discussion = Discussion.find(params[:discussion_id])
     @comment = @discussion.comments.find(params[:id])
