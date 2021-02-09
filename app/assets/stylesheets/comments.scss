@@ -3,7 +3,14 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .comment_field {
-    height: 25px;
+    height: 35px;
+    min-width: 220px;
+}
+
+.comment_submit {
+    height: 35px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .comments {
