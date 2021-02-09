@@ -17,15 +17,19 @@ Rails.application.routes.draw do
   resources :projects
 
   resources :discussions
+  
   resources :projects do
     member do
       post "add_upload"
       post "destroy_upload"
     end
+
+    resources :chatrooms, only: [:index, :show]
   end
 
-  resources :chatrooms, only: [:index, :show]
+  
   resources :chatmessages, only: [:create, :update, :delete, :edit]
+  
   
   mount ActionCable.server, at: "/cable"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
