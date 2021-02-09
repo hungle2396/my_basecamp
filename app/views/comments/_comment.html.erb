@@ -1,11 +1,15 @@
 <div class="comments_item">
-    <p class="comment_name"><%= comment.user.username %></p>
-    <p class="comment_text"><%= comment.body %></p>
-    <p class="comment_destroy_btn">
-        <%= link_to 'Destroy Comment', [comment.discussion, comment],
-                        method: :delete,
-                        data: { confirm: "Are you sure?" } %>
-        
-    </p>
-    <%= link_to 'Edit Comment', edit_discussion_comment_path(@discussion, comment) %>
+    <div>
+        <p class="comment_name"><%= comment.user.username %></p>
+        <p class="comment_text"><%= comment.body %></p>
+    </div>
+    <div class="comments_action-btns">
+        <p class="comment_destroy_btn">
+            <%= link_to 'Destroy Comment', [comment.discussion, comment],
+                            method: :delete,
+                            data: { confirm: "Are you sure?" } %>
+            
+        </p>
+        <p><%= link_to 'Edit Comment', edit_discussion_comment_path(@discussion, comment) %></p>
+    </div>
 </div>

@@ -12,9 +12,30 @@
 }
 
 .comments_item {
+    display: flex;
+    justify-content: space-between;
     border-bottom: 1px solid black;
     padding-top: 10px;
     padding-bottom: 10px; 
+}
+
+.comments_item div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.comments_item div p:first-child {
+    margin-bottom: 5px;
+}
+
+.comments_item div:first-child {
+    margin-right: 20px;
+}
+
+.comments_action-btns p {
+    padding: 5px;
+    border: 1px solid black;
 }
 
 .comments_item:first-child {
@@ -23,5 +44,4 @@
 
 .comments_item .comment_name {
     color: blue;
-    margin-bottom: 5px;
 }
