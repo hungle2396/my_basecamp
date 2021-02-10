@@ -4,7 +4,7 @@
     </div>
     
     <div class="project__btn__invite__container">
-        <%= form_with(model: @project, local: true, url: { action: "add_user" }, method: "post") do |f| %>
+        <%= form_with(local: true, url: { action: "add_user" }, method: "post") do |f| %>
             <%= f.email_field :email, placeholder: "Enter the user email" %>
             <%= f.submit "Add", class: "btn__normal" %>
         <% end %>

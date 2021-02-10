@@ -74,7 +74,7 @@ class ProjectsController < ApplicationController
 
     def add_user
         @project = Project.find(params[:id])
-        user = User.find_by(email: params[:user][:address])
+        user = User.find_by(email: params[:email])
         
         @project.users.push(user)
 
