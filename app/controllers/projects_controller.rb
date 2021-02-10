@@ -72,8 +72,23 @@ class ProjectsController < ApplicationController
         redirect_to @project
     end
 
+    def add_user
+        @project = Project.find(params[:id])
+        user = User.find_by(email: params[:user][:address])
+        
+        @project.users.push(user)
+
+        if @project.save
+            flash[:notice] = "Added user successfully"
+            redirect_to project_path(@project)
+        else
+            flash[:alert] = "Failed to add user"
+            redirect_to project_path(@project)
+        end
+    end
+
     private
         def project_params
-            params.require(:project).permit(:title, :description, uploads: [])
+            params.require(:project).permit(:title, :description, users: [], uploads: [])
         end
 end

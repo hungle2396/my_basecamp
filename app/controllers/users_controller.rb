@@ -19,6 +19,19 @@ class UsersController < ApplicationController
         @users = User.all.paginate(page: params[:page], per_page: 5)
     end
 
+    def destroy
+        @user = User.find(params[:id])
+        @user.destroy
+
+        if current_user == @user
+            user_session = nil
+        end
+        
+        if @user.destroy
+            redirect_to root_url, notice: "User deleted."
+        end
+    end
+
     def makeAdmin
         @user = User.find(params[:id])
         @user.admin = true
@@ -31,18 +44,5 @@ class UsersController < ApplicationController
         @user.admin = false
         @user.save
         redirect_to(users_url)
-    end
-
-    def destroy
-        @user = User.find(params[:id])
-        @user.destroy
-
-        if current_user == @user
-            user_session = nil
-        end
-        
-        if @user.destroy
-            redirect_to root_url, notice: "User deleted."
-        end
     end
 end

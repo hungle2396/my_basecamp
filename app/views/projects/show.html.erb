@@ -4,11 +4,15 @@
     </div>
     
     <div class="project__btn__invite__container">
-        <a href="#" class="btn__normal">Invite people(coming soon)</a>
+        <%= form_with(model: @project, local: true, url: { action: "add_user" }, method: "post") do |f| %>
+            <%= f.email_field :email, placeholder: "Enter the user email" %>
+            <%= f.submit "Add", class: "btn__normal" %>
+        <% end %>
     </div>
     
+
     <div class="project__btns__container">
-        <%= link_to "Back", user_path(@user.id), class: "btn__square btn__color__yellow__orange project__btn" %>
+        <%= link_to "Back", user_path(@user), class: "btn__square btn__color__yellow__orange project__btn" %>
 
         <%= link_to "Edit project", edit_project_path(@project), class: "btn__square btn__color__yellow__orange project__btn" %>
     
