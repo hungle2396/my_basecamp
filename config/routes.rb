@@ -15,9 +15,7 @@ Rails.application.routes.draw do
     end
   end
   resources :projects do
-    resources :discussions do
-      post 'comments', to: 'comments#create'
-    end
+    resources :discussions
   end
 
   resources :discussions do
