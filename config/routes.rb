@@ -14,9 +14,6 @@ Rails.application.routes.draw do
       post "removeAdmin"
     end
   end
-  resources :projects
-
-  resources :discussions
 
   resources :projects do
     member do
@@ -26,11 +23,19 @@ Rails.application.routes.draw do
     end
 
     resources :invitations, except: [:show, :edit, :update]
+    resources :discussions
+  end
+  
+  resources :discussions do
+    resources :comments do 
+      post 'comments', to: 'comments#create'
+    end
   end
 
   resources :chatrooms, only: [:index, :show]
   resources :chatmessages, only: [:create, :update, :delete, :edit]
   
   mount ActionCable.server, at: "/cable"
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

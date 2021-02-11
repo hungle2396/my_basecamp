@@ -3,6 +3,15 @@
 
 .btn {
 
+    &__simple {
+        display: inline-block;
+        padding: 1.5rem 3rem;
+        text-decoration: none;
+        border: 2px solid #d68940;
+        border-radius: 10rem;
+
+    }
+
     &__normal,
     &__normal:link,
     &__normal:visited {

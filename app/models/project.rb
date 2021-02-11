@@ -9,4 +9,5 @@ class Project < ApplicationRecord
     has_many :users, through: :groups
     has_many_attached :uploads
     has_one :chatroom, dependent: :destroy
+    has_many :discussions, dependent: :destroy
 end

@@ -64,5 +64,14 @@
                 <%= link_to "Public Chat Room", chatrooms_path, class: "project__feature__link" %>
             </div>
         </div>
+        
+        <div class="project__features__container">
+            <div class="project__features__discussion">
+                <%= link_to "Discussions", project_discussions_path(project_id: @project.id), class: "btn__circle btn__color__yellow__orange" %>
+            </div>
+        </div>
+
+
+
     </div>
 </div>

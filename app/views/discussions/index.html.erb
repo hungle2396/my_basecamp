@@ -3,23 +3,6 @@
         <h1>Discussion</h1>
     </div>
 
-    <div class="flickr_pagination">
-        <div class="page_info">
-            <%= page_entries_info @discussions %>
-        </div>
-        <%= will_paginate @discussions, :container => false %>
-    </div>
-
-    <% if user_signed_in? %>
-        <ul class="project__list">
-            <% @discussions.each do |discussion| %>
-                <li class="project__item">
-                    <h3 class="project__title"><%= link_to discussion.title, discussion_path(discussion), class: "project__link" %></h3>
-                    <p class="project__description">
-                        <%= project.description %>
-                    </p>
-                </li>
-            <% end %>
-        </ul>
-    <% end %>
+    <%= render "discussion", objects: @discussions %>
+    
 </div>

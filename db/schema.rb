@@ -36,6 +36,9 @@ ActiveRecord::Schema.define(version: 2021_02_07_061413) do
   create_table "chatmessages", force: :cascade do |t|
     t.text "body"
     t.integer "user_id"
+  end
+
+  create_table "attachments", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -43,10 +46,21 @@ ActiveRecord::Schema.define(version: 2021_02_07_061413) do
   create_table "chatrooms", force: :cascade do |t|
     t.integer "project_id"
   end
+  
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "discussion_id", null: false
+    t.index ["discussion_id"], name: "index_comments_on_discussion_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
 
   create_table "discussions", force: :cascade do |t|
     t.string "title"
     t.text "description"
+    t.integer "project_id"
   end
 
   create_table "groups", force: :cascade do |t|
@@ -81,6 +95,8 @@ ActiveRecord::Schema.define(version: 2021_02_07_061413) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comments", "discussions"
+  add_foreign_key "comments", "users"
   add_foreign_key "groups", "projects"
   add_foreign_key "groups", "users"
 end

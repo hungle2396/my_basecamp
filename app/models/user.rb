@@ -10,4 +10,9 @@ class User < ApplicationRecord
   has_many :groups, dependent: :destroy
   has_many :projects, through: :groups
   has_many :chatmessages
+  has_many :comments, dependent: :destroy
+
+  def username
+    return email.split('@')[0]
+  end
 end
