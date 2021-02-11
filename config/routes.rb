@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'pages#home'
+  
   get 'welcome/index'
   get "how-it-works", to: "pages#how_it_works"
   get "before-after", to: "pages#before_after"
@@ -8,6 +8,17 @@ Rails.application.routes.draw do
   get "support", to: "pages#support"
 
   devise_for :users
+
+  devise_scope :user do
+    authenticated :user do
+      root 'users#show', as: :authenticated_root
+    end
+
+    unauthenticated do
+      root 'devise/sessions#new', as: :unauthenticated_root
+    end
+  end
+
   resources :users, except: [:edit, :update] do
     member do
       post "makeAdmin"
