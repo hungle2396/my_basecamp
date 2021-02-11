@@ -49,8 +49,6 @@ class ProjectsController < ApplicationController
             render "edit"
         end
     end
-
-
     
     def destroy
         @project = Project.find(params[:id])
