@@ -127,6 +127,8 @@
         background-color: #fff;
         box-shadow: 1rem 1rem 1rem #dddcdc;
         border-radius: 1rem;
+        display: flex;
+        justify-content: space-between;
     }
 
     &__feature {
