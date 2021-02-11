@@ -61,7 +61,6 @@ class ProjectsController < ApplicationController
 
     def add_upload
         @project = Project.find(params[:id])
-        print params
         @project.uploads.attach(params[:project][:uploads])
         @project.save()
         redirect_to @project
@@ -75,7 +74,6 @@ class ProjectsController < ApplicationController
     end
 
     def add_user
-        byebug
         @project = Project.find(params[:id])
         user = User.find_by(email: params[:email])
         

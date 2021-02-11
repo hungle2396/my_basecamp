@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       post "add_user"
     end
 
+    
     resources :invitations, except: [:show, :edit, :update]
     resources :discussions
   end

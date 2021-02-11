@@ -52,7 +52,7 @@
 
         <%= form_with(model: @project, local: true, url: { action: "add_upload" }, method: "post") do |f| %>
 
-                <div class="attachment__add-field">
+                <div class="attachment__add-field"> 
                     <%= f.file_field :uploads, multiple: true %>
                     <%= f.submit "Add", class: "btn__small btn__color__yellow__orange project__form__submit" %>
                 </div>
