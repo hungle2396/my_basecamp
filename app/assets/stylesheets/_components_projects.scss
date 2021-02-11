@@ -6,6 +6,38 @@
         text-align: center;
     }
     
+    &__searchbox__container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__btn__invite__container {
+        margin-bottom: 2rem;
+        display: flex;
+        justify-content: center;
+        display: inline-block;
+        padding: 0 0 0 2rem;
+        border-radius: 5rem;
+        background-color: #fff;
+        box-shadow: 1rem 1rem 1rem #888888;
+    }
+
+    &__invite__searchbox {
+        padding: 0.8rem 0.5rem;
+        outline: none;
+        border: none;
+        transition: all 0.5s;
+
+        &:focus {
+            padding: 0 2rem;
+        }
+    }
+
+    &__btn__invite {
+        border: 5px solid 
+    }
+
     &__btns__container {
         display: flex;
         justify-content: space-around;
@@ -14,12 +46,6 @@
     &__btn__container {
         margin-right: 3rem;
         display: flex;
-    }
-    
-    &__btn__invite__container {
-        margin-bottom: 2rem;
-        display: flex;
-        justify-content: center;
     }
 
     &__btn {

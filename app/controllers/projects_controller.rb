@@ -73,6 +73,7 @@ class ProjectsController < ApplicationController
     end
 
     def add_user
+        byebug
         @project = Project.find(params[:id])
         user = User.find_by(email: params[:email])
         

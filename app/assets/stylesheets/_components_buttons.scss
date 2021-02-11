@@ -13,11 +13,23 @@
         border-radius: 10rem;
     }
 
-    &__small {
+    &__small,
+    &__small:link,
+    &__small:visited {
         font-size: 1.5rem;
         padding: 0.5rem 1.5rem;
         border: 0.2rem solid #d68940;
         border-radius: 10rem;
+        cursor: pointer;
+    }
+
+    &__medium,
+    &__medium:link,
+    &__medium:visited {
+        font-size: 1.8rem;
+        padding: 0.8rem 2rem;
+        border-radius: 10rem;
+        outline: none;
         cursor: pointer;
     }
 
@@ -86,16 +98,30 @@
 .btn__color {
 
     &__yellow__orange {
-        font-family: sans-serif;
         text-transform: none;
         font-weight: 100;
-        color:#fef6ec;
+        color: rgb(243, 243, 243) !important;
+        border: none;
         background-image: linear-gradient(to right, #ec9e0d, #d34d1c);
-        
     }
 
     &__yellow__orange::after {
         background-image: linear-gradient(to right, #ec9e0d, #d34d1c);
+    }
+}
+
+.btn__animation {
+    &__expand {
+        color: #d34d1c;
+        font-size: 1.8rem !important;
+        outline: none;
+        cursor: pointer;
+        transition: transform 0.5s;
+
+        &:hover,
+        &:active {
+            transform: scale(1.05);
+        }
     }
 }
 

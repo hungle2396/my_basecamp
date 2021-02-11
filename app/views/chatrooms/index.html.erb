@@ -19,7 +19,7 @@
             <%= form_with(model: @chatmessage, html: {class: "chatroom__response__form", role: "form"}, local: true) do |f|%>
                 <%= f.text_field :body, class: "chatroom__response__input", placeholder: "Type something here!" %>
 
-                <%= f.submit "send", class: 'btn__normal chatroom__response__btn' %>
+                <%= f.submit "send", class: 'btn__small btn__color__yellow__orange btn__animation__expand' %>
             <% end %>
         </div>
     </div>

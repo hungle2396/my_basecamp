@@ -64,22 +64,6 @@
         border: none;
         outline: none;
     }
-
-    &__response__btn {
-        color: #fff;
-        padding: 0.5rem 1.5rem !important;
-        font-size: 1.8rem !important;
-        border: none !important;
-        outline: none;
-        background-image: linear-gradient(to right bottom, rgba(255, 178, 34, 0.8), rgba(241, 107, 58, 0.856));
-        cursor: pointer;
-        transition: transform 0.8s ease;
-
-        &:hover,
-        &:active {
-            transform: scale(1.05);
-        }
-    }
 }
 
 .chatroom__user {

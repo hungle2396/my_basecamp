@@ -3,14 +3,15 @@
         <h1><%= @project.title %></h1>
     </div>
     
-    <div class="project__btn__invite__container">
-        <%= form_with(local: true, url: { action: "add_user" }, method: "post") do |f| %>
-            <%= f.email_field :email, placeholder: "Enter the user email" %>
-            <%= f.submit "Add", class: "btn__normal" %>
-        <% end %>
+    <div class="project__searchbox__container">
+        <div class="project__btn__invite__container">
+            <%= form_with(local: true, url: { action: "add_user" }, method: "post") do |f| %>
+                <%= f.email_field :email, class: "project__invite__searchbox", placeholder: "Enter the user email" %>
+                <%= f.submit "Add user", class: "btn__medium btn__color__yellow__orange btn__animation__expand" %>
+            <% end %>
+        </div>
     </div>
     
-
     <div class="project__btns__container">
         <%= link_to "Back", user_path(@user), class: "btn__square btn__color__yellow__orange project__btn" %>
 
