@@ -2,7 +2,12 @@ class UsersController < ApplicationController
     before_action :authenticate_user!
 
     def show
-        @user = User.find(params[:id])
+        if params[:id].present?
+            @user = User.find(params[:id])
+        else
+            @user = current_user
+        end
+
         @projects = @user.projects.paginate(page: params[:page], per_page: 3)
         print @projects
 
