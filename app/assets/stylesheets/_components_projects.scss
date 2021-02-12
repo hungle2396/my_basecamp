@@ -140,7 +140,9 @@
         color: #fff;
         border-radius: 0.5rem;
         transition: background-color 0.5s ease;
-
+        padding: 3rem 0 8rem 0;
+        position: relative;
+        z-index: 0;
         &:hover {
             background-color: blue;
         }
@@ -149,6 +151,17 @@
     &__feature__link:link,
     &__feature__visited:visited {
         display: block;
-        padding: 5rem 5rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin-right: -50%;
+        padding: 10rem 4rem 2rem 4rem;
+        z-index: 100;
+    }
+
+    &__feature__svg {
+        width: 8rem;
+        height: 8rem;
     }
 }
