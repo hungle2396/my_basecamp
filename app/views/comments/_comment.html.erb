@@ -5,11 +5,19 @@
     </div>
     <div class="comments_action-btns">
         <p class="comment_destroy_btn">
+            <%= inline_svg_tag "trash.svg", class: "comments_destroy_svg" %>
+        
             <%= link_to 'Destroy Comment', [comment.discussion, comment],
-                            method: :delete,
-                            data: { confirm: "Are you sure?" } %>
-            
+                        method: :delete,
+                        data: { confirm: "Are you sure?" } %>
+        
         </p>
-        <p><%= link_to 'Edit Comment', edit_discussion_comment_path(@discussion, comment) %></p>
+
+        <p class="comment_edit_btn">
+            <%= inline_svg_tag "pencil.svg", class: "comments_edit_svg" %>
+            
+            <%= link_to 'Edit Comment', edit_discussion_comment_path(@discussion, comment) %>
+        </p>
+        
     </div>
 </div>
