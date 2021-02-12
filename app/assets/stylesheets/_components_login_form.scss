@@ -1,0 +1,82 @@
+.login {
+    width: 100%;
+    height: 80%;
+    position: relative;
+
+    &__template {
+        width: 90rem;
+        background-image: linear-gradient(to right bottom, #ec9e0d, #d34d1c);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        padding: 5rem 2rem;
+        border-radius: 1rem;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        box-shadow: 0 0 1rem rgb(156, 156, 156);
+    }
+
+    &__template::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        right: 0;
+        background-color: #fff;
+        z-index: -1;
+
+        -webkit-clip-path: ellipse(50% 55% at 96% 55%);
+        clip-path: ellipse(50% 55% at 96% 55%);
+    }
+
+    &__container {
+        flex-basis: 50%;
+        padding: 0 3rem;
+    }
+
+    &__header {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    &__signup__template {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-basis: 50%;
+    }
+
+    &__signup__container {
+    }
+
+    &__text__label {
+        margin-bottom: 0.8rem;
+    }
+
+    &__text__field {
+        margin-bottom: 1.8rem;
+        width: 28rem;
+        padding: 0.5rem 1rem;
+        outline-color: #db663b;
+    }
+
+    &__btn {
+        padding: 1rem 5rem !important;
+        border: none;
+
+        &:hover,
+        &:active {
+            box-shadow: 1 0 1rem 1rem #fff;
+        }
+    }
+}
+
+.actions {
+    margin-top: 2rem;
+    text-align: center;
+}
