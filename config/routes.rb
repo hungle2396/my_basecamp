@@ -1,14 +1,12 @@
 Rails.application.routes.draw do
-  root to: "devise/sessions#new"
-
+  root to: "users#show"
+  
   get 'welcome/index'
   get "how-it-works", to: "pages#how_it_works"
   get "before-after", to: "pages#before_after"
   get "got-clients", to: "pages#got_clients"
   get "pricing", to: "pages#pricing"
   get "support", to: "pages#support"
-
-  devise_for :users
 
   devise_scope :user do
     authenticated :user do
@@ -20,6 +18,8 @@ Rails.application.routes.draw do
     end
   end
 
+  devise_for :users
+  
   resources :users, except: [:edit, :update] do
     member do
       post "makeAdmin"
