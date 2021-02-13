@@ -1,11 +1,13 @@
+@import "abstract_variables";
+
 .login {
-    width: 100%;
+    min-width: 50%;
     height: 80%;
     position: relative;
 
     &__template {
         width: 90rem;
-        background-image: linear-gradient(to right bottom, #ec9e0d, #d34d1c);
+        background-image: linear-gradient(to right bottom, $primary-yellow-light, $primary-yellow-medium);
         position: absolute;
         top: 50%;
         left: 50%;
@@ -14,7 +16,6 @@
         display: flex;
         padding: 5rem 2rem;
         border-radius: 1rem;
-        position: relative;
         z-index: 1;
         overflow: hidden;
         box-shadow: 0 0 1rem rgb(156, 156, 156);
@@ -51,9 +52,6 @@
         flex-basis: 50%;
     }
 
-    &__signup__container {
-    }
-
     &__text__label {
         margin-bottom: 0.8rem;
     }
@@ -73,6 +71,11 @@
         &:active {
             box-shadow: 1 0 1rem 1rem #fff;
         }
+    }
+
+    &__signup__btn {
+        color: $primary-black;
+        font-weight: 900;
     }
 }
 

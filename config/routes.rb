@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  
+  root to: "devise/sessions#new"
+
   get 'welcome/index'
   get "how-it-works", to: "pages#how_it_works"
   get "before-after", to: "pages#before_after"

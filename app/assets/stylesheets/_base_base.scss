@@ -19,9 +19,10 @@ html {
 }
 
 body {
+    background-color: $primary-white-2;
     font-size: 2rem;
     font-family: 'PT Sans', sans-serif;
-    color:rgb(37, 36, 36);
+    color: $primary-black;
 }
 
 a {

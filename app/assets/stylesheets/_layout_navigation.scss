@@ -1,3 +1,5 @@
+@import "abstract_variables";
+
 .navigation {
 
     &__container {
@@ -22,7 +24,7 @@
         & a:link,
         & a:visited {
             text-decoration: none;
-            color: #3f3f3f;
+            color: $primary-grey-medium;
         }
     }
 
@@ -32,6 +34,6 @@
         font-size: 2rem;
         font-weight: 600;
         text-decoration: none;
-        color: rgb(63, 63, 63);
+        color: $primary-grey-medium;
     }
 }

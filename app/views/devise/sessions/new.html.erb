@@ -46,13 +46,14 @@
     <div class="login__signup__template"
         <div class="login__signup__container">
           <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-            <%= link_to "Sign up", new_registration_path(resource_name), class: "btn__circle btn__color__yellow__orange" %>
+            <%= link_to "Sign up", new_registration_path(resource_name), class: "btn__circle btn__color__yellow__orange login__signup__btn" %>
           <% end %>
         </div>
     </div>
-    
   </div>
 </div>
+
+
 
 
 

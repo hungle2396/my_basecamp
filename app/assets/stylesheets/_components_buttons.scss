@@ -1,6 +1,8 @@
 /********** Button circle and square shape ******/
 // project components 
 
+@import "abstract_variables";
+
 .btn {
 
     &__simple {
@@ -108,20 +110,17 @@
 
     &__yellow__orange {
         text-transform: none;
-        font-weight: 100;
-        color: rgb(243, 243, 243) !important;
         border: none;
-        background-image: linear-gradient(to right, #ec9e0d, #d34d1c);
+        background-image: linear-gradient(to right bottom, $primary-yellow-light, $primary-yellow-medium);
     }
 
     &__yellow__orange::after {
-        background-image: linear-gradient(to right, #ec9e0d, #d34d1c);
+        background-image: linear-gradient(to right bottom, $primary-yellow-light, $primary-yellow-medium);
     }
 }
 
 .btn__animation {
     &__expand {
-        color: #d34d1c;
         font-size: 1.8rem !important;
         outline: none;
         cursor: pointer;
