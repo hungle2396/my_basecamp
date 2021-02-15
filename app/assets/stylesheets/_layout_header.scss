@@ -1,8 +1,14 @@
+@import "abstract_variables";
+
 .header {
     width: 100vw;
     height: 100vh;
     padding-left: 40px;
     padding-right: 40px;
+
+    &__login__background {
+        background-image: linear-gradient(to right bottom, rgba($primary-grey, 0.8), rgba($primary-orange, 0.2)), url(asset_path(login-background));
+    }
     &__content__container {
         max-width: 120rem;
         height: auto;
@@ -18,5 +24,13 @@
         justify-content: center;
         font-size: 4rem;
         margin: 3rem 0;
+    }
+
+    &__mixed__color {
+        background-image: linear-gradient(to right bottom, $primary-yellow, $primary-orange);
+        color: transparent;
+        background-clip: text;
+        -moz-background-clip: text;
+        -webkit-background-clip: text;
     }
 }

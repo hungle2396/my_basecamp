@@ -1,13 +1,14 @@
 @import "abstract_variables";
 
 .login {
-    min-width: 50%;
+    width: 100%;
     height: 80%;
     position: relative;
-
+    background-size: 25%;
+    background-repeat: no-repeat;
     &__template {
         width: 90rem;
-        background-image: linear-gradient(to right bottom, $primary-yellow-light, $primary-yellow-medium);
+        background-image: linear-gradient(to right bottom, $primary-yellow, $primary-orange);
         position: absolute;
         top: 50%;
         left: 50%;
@@ -58,19 +59,19 @@
 
     &__text__field {
         margin-bottom: 1.8rem;
-        width: 28rem;
+        width: 25rem;
         padding: 0.5rem 1rem;
         outline-color: #db663b;
+        transition: all 0.5s;
+
+        &:focus {
+            width: 30rem;
+        }
     }
 
     &__btn {
         padding: 1rem 5rem !important;
         border: none;
-
-        &:hover,
-        &:active {
-            box-shadow: 1 0 1rem 1rem #fff;
-        }
     }
 
     &__signup__btn {

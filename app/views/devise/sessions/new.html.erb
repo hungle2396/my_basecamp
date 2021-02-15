@@ -1,59 +1,60 @@
-<div class="login">
-  <div class="login__template">
-    <div class="login__container">
-      <h2 class="login__header">Log in</h2>
+<header class="header header__login__background">
+  <%= render "shared/navigation" %>
+  <div class="login">
+    <div class="login__template">
+      <div class="login__container">
+        <h2 class="login__header">Log in</h2>
 
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="field">
-          <div class="login__text__label">
-            <%= f.label :email %><br />
-          </div>
-          
-          <%= f.email_field :email, class: "login__text__field", autofocus: true, autocomplete: "email", placeholder: "Enter your email address" %>
-        </div>
-      
-        <div class="field">
-          <div class="login__text__label">
-            <%= f.label :password %><br />
-          </div>
-
-          <%= f.password_field :password, class: "login__text__field", autocomplete: "current-password", placeholder: "Enter your password" %>
-        </div>
-
-        <% if devise_mapping.rememberable? %>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="field">
             <div class="login__text__label">
-              <%= f.check_box :remember_me  %>
-              <%= f.label :remember_me %>
+              <%= f.label :email %><br />
+            </div>
+            
+            <%= f.email_field :email, class: "login__text__field", autofocus: true, autocomplete: "email", placeholder: "Enter your email address" %>
+          </div>
+        
+          <div class="field">
+            <div class="login__text__label">
+              <%= f.label :password %><br />
+            </div>
+
+            <%= f.password_field :password, class: "login__text__field", autocomplete: "current-password", placeholder: "Enter your password" %>
+          </div>
+
+          <% if devise_mapping.rememberable? %>
+            <div class="field">
+              <div class="login__text__label">
+                <%= f.check_box :remember_me  %>
+                <%= f.label :remember_me %>
+              </div>
+            </div>
+          <% end %>
+        
+          <div class="field">
+            <div class="login__text__label">
+              <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+                <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+              <% end %>
             </div>
           </div>
-        <% end %>
-      
-        <div class="field">
-          <div class="login__text__label">
-            <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-              <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+
+          <div class="actions">
+            <%= f.submit "Log in", class: "btn__medium btn__animation__expand login__btn" %>
+          </div>
             <% end %>
           </div>
-        </div>
 
-        <div class="actions">
-          <%= f.submit "Log in", class: "btn__medium btn__animation__expand login__btn" %>
-        </div>
-          <% end %>
-        </div>
-
-    <div class="login__signup__template"
-        <div class="login__signup__container">
-          <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-            <%= link_to "Sign up", new_registration_path(resource_name), class: "btn__circle btn__color__yellow__orange login__signup__btn" %>
-          <% end %>
-        </div>
+      <div class="login__signup__template"
+          <div class="login__signup__container">
+            <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+              <%= link_to "Sign up", new_registration_path(resource_name), class: "btn__circle btn__color__yellow__orange login__signup__btn btn__animation__fancy" %>
+            <% end %>
+          </div>
+      </div>
     </div>
   </div>
-</div>
-
-
+</header>
 
 
 
