@@ -7,7 +7,7 @@
     padding-right: 40px;
 
     &__login__background {
-        background-image: linear-gradient(to right bottom, rgba($primary-grey, 0.8), rgba($primary-orange, 0.2)), url(asset_path(login-background));
+        background-image: linear-gradient(to right bottom, rgba($primary-grey, 0.7), rgba($primary-orange, 0.1)), url(asset_path(login-background));
     }
     &__content__container {
         max-width: 120rem;

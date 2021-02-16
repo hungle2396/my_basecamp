@@ -6,6 +6,8 @@
             <h1><%= @project.title %></h1>
         </div>
 
+        <%= link_to "invite_user", new_project_invitation_path(@project), class: "btn__circle btn__color__yellow__orange" %>
+        
         <div class="project__searchbox__container">
             <div class="project__btn__invite__container">
                 <%= form_with(local: true, url: { action: "add_user" }, method: "post") do |f| %>
