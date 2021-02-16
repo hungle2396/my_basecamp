@@ -26,7 +26,6 @@
         <p>Attachments:</p>
         <div class="attachments">
             <% if @project.uploads.attached? %>
-                
                     <% @project.uploads.each do |upload| %>
                         <div class="attachment">
                             <% if upload.variable? %>
@@ -46,7 +45,6 @@
                             </div>
                         </div>
                     <%end%>
-                
             <% end %>
         </div>
 
@@ -58,6 +56,12 @@
                 </div>
                 
         <% end %>
+
+        <div class="project__features__container">
+            <div class="project__feature">
+                <%= link_to "Attachments", attachments_project_path(@project), class: "project__feature__link" %>
+            </div>
+        </div>
 
         <div class="project__features__container">
             <div class="project__feature">

@@ -57,18 +57,23 @@ class ProjectsController < ApplicationController
         redirect_to user_path(@user.id)
     end
 
+    def attachments
+        @project = Project.find(params[:id])
+        render "_attachments"
+    end
+
     def add_upload
         @project = Project.find(params[:id])
         @project.uploads.attach(params[:project][:uploads])
         @project.save()
-        redirect_to @project
+        redirect_to attachments_project_path
     end
 
     def destroy_upload
         @project = Project.find(params[:id])
         upload = ActiveStorage::Attachment.find(params[:upload_id])
         upload.purge
-        redirect_to @project
+        redirect_to attachments_project_path
     end
 
     def add_user
