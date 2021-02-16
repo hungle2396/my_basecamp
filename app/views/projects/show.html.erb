@@ -1,6 +1,7 @@
 <header class="header">
     <%= render "shared/navigation" %>
     <%= render "shared/errors" %>
+</header>
     <div class="header__content__container">
         <div class="header__content__primary header__mixed__color">
             <h1><%= @project.title %></h1>
@@ -39,10 +40,10 @@
                     <%= link_to "Discussions", project_discussions_path(project_id: @project.id), class: "project__feature__link" %>
                 </div>
                 <div class="project__feature">
-                    
+                    <%= inline_svg_tag "discussion.svg", class: "project__feature__svg" %>
                     <%= link_to "Attachments", attachments_project_path(@project), class: "project__feature__link" %>
                 </div>
             </div>
         </div>
     </div>
-</header>
+

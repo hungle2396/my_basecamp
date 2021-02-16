@@ -1,4 +1,9 @@
-<div>
+<header class="header">
+    <%= render "shared/navigation" %>
+    <%= render "shared/errors" %>
+</header>
+<div class="header__content__container">
+
     <%= link_to "Back", project_path(@project), class: "btn__square btn__color__yellow__orange project__btn" %>
 
     <div class="attachments">
