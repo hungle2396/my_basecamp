@@ -1,6 +1,8 @@
 /********** Button circle and square shape ******/
 // project components 
 
+@import "abstract_variables";
+
 .btn {
 
     &__simple {
@@ -47,12 +49,9 @@
     &__circle:visited, &__square:visited {
         font-size: 2rem;
         display: inline-block;
-        
         text-decoration: none;
         transition: all 0.5s;     /* transition everything back for 0.5s */
-
         position: relative;       /* for button after */
-
         // Change for the <button> element
         border: none;
         cursor: pointer;
@@ -64,7 +63,7 @@
     }
 
     &__square {
-        padding: 1.5rem 3rem;
+        padding: 1rem 2rem;
         border-radius: 1rem;
     }
 
@@ -108,28 +107,38 @@
 
     &__yellow__orange {
         text-transform: none;
-        font-weight: 100;
-        color: rgb(243, 243, 243) !important;
         border: none;
-        background-image: linear-gradient(to right, #ec9e0d, #d34d1c);
+        background-image: linear-gradient(to right bottom, $primary-yellow-button, $primary-orange-button);
+        color: $primary-grey-dark;
+        font-weight: 700;
     }
 
-    &__yellow__orange::after {
-        background-image: linear-gradient(to right, #ec9e0d, #d34d1c);
+    &__red {
+        background-color: $primary-red;
+        font-weight: 700;
     }
 }
 
 .btn__animation {
     &__expand {
-        color: #d34d1c;
         font-size: 1.8rem !important;
         outline: none;
         cursor: pointer;
         transition: transform 0.5s;
 
-        &:hover,
-        &:active {
+        &:hover {
             transform: scale(1.05);
+        }
+
+        &:active {
+            transform: translateY(5px);
+        }
+    }
+
+    &__fancy {
+
+        &::after {
+            background-image: linear-gradient(to right bottom, $primary-yellow-button, $primary-orange-button);
         }
     }
 }

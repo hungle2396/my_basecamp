@@ -1,4 +1,10 @@
-<div class="header__content__container">
+<header class="header">
+    <%= render "shared/navigation" %>
+    <%= render "shared/errors" %>
+    <div class="header__content__container">
 
-    <%= render "projects/project", objects: @projects %>
-</div>
+        <%= render "projects/project", objects: @projects %>
+    </div>
+</header>
+
+

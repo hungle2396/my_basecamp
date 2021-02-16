@@ -1,0 +1,85 @@
+@import "abstract_variables";
+
+.invitation {
+    height: 90%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__container {
+        min-width: 500px;
+        margin-top: -100px;
+        height: auto;
+        padding: 20px 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        box-shadow: 0 0 15px $primary-grey;
+    }
+
+    &__title {
+        margin-bottom: 20px;
+    }
+
+    &__content {
+        display: flex;
+    }
+
+    &__left__container {
+        padding: 20px 30px;
+        display: flex;
+        
+        margin-right: 30px;
+    }
+
+    &__email__container, &__role__container {
+        margin-bottom: 30px;
+    }
+
+    &__email__container {
+        display: flex;
+        align-items: center;
+    }
+
+    &__email__label {
+        margin-right: 10px;
+    }
+
+    &__email__textfield {
+        width: 180px;
+        padding: 3px 10px;
+        transition: all 0.5s;
+
+        &:focus {
+            width: 200px;
+        }
+    }
+
+    &__role__container {
+        display: flex;
+    }
+
+    &__roleuser__container {
+        margin-right: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__right__container {
+        
+    }
+
+    &__svg {
+        width: 100px;
+        height: 100px;
+    }
+
+    &__background__svg {
+        width: 300px;
+        height: 300px;
+    }
+}

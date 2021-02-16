@@ -1,8 +1,12 @@
-<div class="header__content__container">
-    <div class="header__content__primary">
-        <h1>Discussion</h1>
-    </div>
+<header class="header">
+    <%= render "shared/navigation" %>
+    <%= render "shared/errors" %>
+    <div class="header__content__container">
+        <div class="header__content__primary header__mixed__color">
+            <h1>Discussion</h1>
+        </div>
 
-    <%= render "discussion", objects: @discussions %>
-    
-</div>
+        <%= render "discussion", objects: @discussions %>
+        
+    </div>
+</header>

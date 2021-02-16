@@ -1,40 +1,72 @@
 // Place all the styles related to the Comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+@import "abstract_variables";
 
-.comment_field {
-    height: 35px;
-    min-width: 220px;
-}
+.comment {
 
-.comment_submit {
-    height: 35px;
-    padding-left: 5px;
-    padding-right: 5px;
+    &_field {
+        height: 35px;
+        min-width: 220px;
+    }
+
+    &_submit {
+        height: 35px;
+        padding-left: 5px;
+        padding-right: 5px;
+        border-radius: 5px;
+        background-color: $primary-white-2;
+        cursor: pointer;
+        border: 2px solid $primary-yellow;
+        outline: none;
+        background-image: linear-gradient(to right bottom, $primary-yellow, $primary-orange);
+        color: transparent;
+        -webkit-background-clip: text;
+        font-weight: 600;
+        transition: all 0.5s;
+
+        &:hover,
+        &:active {
+            transform: scale(1.02);
+            box-shadow: 0 0 10px $primary-grey;
+        }
+    }
+
+    &_destroy_btn, &_edit_btn {
+        display: flex;
+        align-items: center;
+    }
 }
 
 .comments {
     margin-top: 20px;
     width: fit-content;
+
+    &_destroy_svg, &_edit_svg {
+        width: 30px;
+        height: 30px;
+        margin-right: 8px;
+    }
+
+    &_item {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid black;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    &_item div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &_item div p:first-child {
+        margin-bottom: 5px;
+    }
 }
 
-.comments_item {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid black;
-    padding-top: 10px;
-    padding-bottom: 10px; 
-}
-
-.comments_item div {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.comments_item div p:first-child {
-    margin-bottom: 5px;
-}
 
 .comments_item div:first-child {
     margin-right: 20px;

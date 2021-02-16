@@ -1,48 +1,48 @@
-<div class="header__content__container">
-    <div class="header__content__primary">
-        <h1><%= @project.title %></h1>
-    </div>
-    
-    <div class="project__searchbox__container">
-        <div class="project__btn__invite__container">
-            <%= form_with(local: true, url: { action: "add_user" }, method: "post") do |f| %>
-                <%= f.email_field :email, class: "project__invite__searchbox", placeholder: "Enter the user email" %>
-                <%= f.submit "Add user", class: "btn__medium btn__color__yellow__orange btn__animation__expand" %>
-            <% end %>
-        </div>
-    </div>
-    
-    <div class="project__btns__container">
-        <%= link_to "Back", user_path(@user), class: "btn__square btn__color__yellow__orange project__btn" %>
-
-        <%= link_to "Edit project", edit_project_path(@project), class: "btn__square btn__color__yellow__orange project__btn" %>
-    
-    
-        <%= link_to "Delete project", project_path(@project), method: :delete, data: { confirm: "Are you sure?" }, class: "btn__square btn__color__yellow__orange project__btn" %>
-    </div>
-
-    <p><%= @project.description%></p>
-    <div>
-
-        <div class="project__features__container">
-            <div class="project__feature">
-                <%= link_to "Attachments", attachments_project_path(@project), class: "project__feature__link" %>
-            </div>
+<header class="header">
+    <%= render "shared/navigation" %>
+    <%= render "shared/errors" %>
+    <div class="header__content__container">
+        <div class="header__content__primary header__mixed__color">
+            <h1><%= @project.title %></h1>
         </div>
 
-        <div class="project__features__container">
-            <div class="project__feature">
-                <%= link_to "Public Chat Room", chatrooms_path, class: "project__feature__link" %>
-            </div>
+        <div class="project__invite__btn btn__medium btn__color__yellow__orange btn__animation__expand">
+            <%= inline_svg_tag "add.svg", class: "project__invite__svg" %>
+            <%= link_to "invite user", new_project_invitation_path(@project), class: "project__invite__link" %>
         </div>
         
-        <div class="project__features__container">
-            <div class="project__features__discussion">
-                <%= link_to "Discussions", project_discussions_path(project_id: @project.id), class: "btn__circle btn__color__yellow__orange" %>
+
+        <div class="project__btns__container">
+            <div class="project__btns__left__container">
+                <%= link_to "Back", user_path(@user), class: "btn__square btn__color__yellow__orange project__btn" %>
+            
+            
+                <%= link_to "Edit project", edit_project_path(@project), class: "btn__square btn__color__yellow__orange project__btn" %>
+            </div>
+            
+
+            <div class="project__btns__right__container">
+                <%= link_to "Delete project", project_path(@project), method: :delete, data: { confirm: "Are you sure?" }, class: "btn__square project__btn btn__color__red" %>
             </div>
         </div>
 
+        <p><%= @project.description%></p>
+        <div>
+            <div class="project__features__container">
+                <div class="project__feature">
+                    <%= inline_svg_tag "speech-bubble.svg", class: "project__feature__svg" %>
+                    <%= link_to "Public Chat Room", chatrooms_path, class: "project__feature__link" %>
+                </div>
 
-
+                <div class="project__feature">
+                    <%= inline_svg_tag "discussion.svg", class: "project__feature__svg" %>
+                    <%= link_to "Discussions", project_discussions_path(project_id: @project.id), class: "project__feature__link" %>
+                </div>
+                <div class="project__feature">
+                    
+                    <%= link_to "Attachments", attachments_project_path(@project), class: "project__feature__link" %>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+</header>

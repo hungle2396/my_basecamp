@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root to: 'pages#home'
+  root to: "users#show"
+  
   get 'welcome/index'
   get "how-it-works", to: "pages#how_it_works"
   get "before-after", to: "pages#before_after"
@@ -7,7 +8,18 @@ Rails.application.routes.draw do
   get "pricing", to: "pages#pricing"
   get "support", to: "pages#support"
 
+  devise_scope :user do
+    authenticated :user do
+      root 'users#show', as: :authenticated_root
+    end
+
+    unauthenticated do
+      root 'devise/sessions#new', as: :unauthenticated_root
+    end
+  end
+
   devise_for :users
+  
   resources :users, except: [:edit, :update] do
     member do
       post "makeAdmin"
@@ -23,8 +35,7 @@ Rails.application.routes.draw do
       post "add_user"
     end
 
-    
-    resources :invitations, except: [:show, :edit, :update]
+    resources :invitations, only: [:new, :create, :destroy]
     resources :discussions
   end
   

@@ -80,13 +80,13 @@ class ProjectsController < ApplicationController
         @project = Project.find(params[:id])
         user = User.find_by(email: params[:email])
         
-        @project.users.push(user)
-
-        if @project.save
+        if user.present?
+            @project.users.push(user)
+            @project.save
             flash[:notice] = "Added user successfully"
             redirect_to project_path(@project)
         else
-            flash[:alert] = "Failed to add user"
+            flash[:alert] = "User email address doesn't exist"
             redirect_to project_path(@project)
         end
     end

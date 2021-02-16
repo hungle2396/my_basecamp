@@ -36,9 +36,6 @@ ActiveRecord::Schema.define(version: 2021_02_07_061413) do
   create_table "chatmessages", force: :cascade do |t|
     t.text "body"
     t.integer "user_id"
-  end
-
-  create_table "attachments", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -46,7 +43,7 @@ ActiveRecord::Schema.define(version: 2021_02_07_061413) do
   create_table "chatrooms", force: :cascade do |t|
     t.integer "project_id"
   end
-  
+
   create_table "comments", force: :cascade do |t|
     t.text "body"
     t.integer "user_id", null: false
