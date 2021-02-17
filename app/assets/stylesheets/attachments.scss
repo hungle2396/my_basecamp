@@ -2,6 +2,16 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    margin-top: 30px;
+    margin-bottom: 45px;
+}
+
+.attachments_page {
+    margin-bottom: 60px!important;
+}
+
+.attachments_header {
+    margin-bottom: 60px;
 }
 
 .attachment {
@@ -20,14 +30,29 @@
     bottom: 14px;
 }
 
-.project_upload {
+.attachment_upload {
     cursor: nesw-resize;
+    display: flex;
+    overflow: hidden;
+}
+
+.attachments_delete-btn {
+    background-color: white;
 }
 
 .attachment__add-field {
     width: fit-content;
     font-size: 1.5rem;
-    padding: 0.5rem 1.5rem;
+    padding: 2.5rem 2.5rem;
     border: 0.2rem solid #d68940;
     margin-bottom: 10px;
+}
+
+.attachment__add-field input[type="file" i] {
+    background-color: white;
+    font-size: 24px;
+}
+
+.attachment_submit-btn {
+    font-size: 24px;
 }
