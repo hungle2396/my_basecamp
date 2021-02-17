@@ -5,7 +5,7 @@
     height: 100vh;
     padding-left: 40px;
     padding-right: 40px;
-
+    
     &__login__background {
         background-image: linear-gradient(to right bottom, rgba($primary-grey, 0.7), rgba($primary-orange, 0.1)), url(asset_path(login-background));
     }
