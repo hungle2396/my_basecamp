@@ -1,16 +1,25 @@
 .discussion__actions {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
     align-items: center;
     margin-top: 20px;
     margin-bottom: 40px;
 }
 
-.discussion__actions :not(:last-child) {
+.discussion_btn_item {
+    flex-grow: 1;
     margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.discussion_btn_item:last-child {
+    margin-right: 0;
 }
 
 .discussion__btn {
     height: 60px;
     font-size: 24px;
+    color: white!important;
+    text-align: center;
 }

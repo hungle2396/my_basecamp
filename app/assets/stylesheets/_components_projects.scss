@@ -20,7 +20,13 @@
         background-image: linear-gradient(to right bottom, $primary-yellow-light, $primary-orange-light);
     }
 
-    &__users__title {
+    &__container {
+        width: 80%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    &__header__primary {
         text-align: center;
         padding: 10px 0;
         background-color: $primary-white-2;
@@ -37,10 +43,6 @@
         width: 30px;
         height: auto;
         margin-right: 20px;
-    }
-
-    &__user__name {
-
     }
 
     &__invite__container {

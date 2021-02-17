@@ -1,16 +1,18 @@
 <header class="header">
     <%= render "shared/navigation" %>
     <%= render "shared/errors" %>
+</header>
+<div class="discussion_comments project__container">
     <h1>Discussion topic: <%= @discussion.description%></h1>
     <div class="discussion__actions">
-        <%= button_to "Delete discussion", { action: "destroy", id: @discussion.id },
-                                        method: :delete, data: { confirm: "Are you sure?" }, class: "btn__simple btn__color__yellow__orange discussion__btn" %>
-        <%= link_to "Edit discussion", edit_discussion_path(@discussion), class: "btn__simple btn__color__yellow__orange discussion__btn"%>
-        <%= link_to "Project", project_path(@discussion.project),  class: "btn__simple btn__color__yellow__orange discussion__btn"%>
+        <%= link_to "Delete discussion", { action: "destroy", id: @discussion.id },
+                                        method: :delete, data: { confirm: "Are you sure?" }, class: "discussion_btn_item btn__simple btn__color__yellow__orange discussion__btn" %>
+        <%= link_to "Edit discussion", edit_discussion_path(@discussion), class: " discussion_btn_item btn__simple btn__color__yellow__orange discussion__btn"%>
+        <%= link_to "Project", project_path(@discussion.project),  class: "discussion_btn_item btn__simple btn__color__yellow__orange discussion__btn"%>
     </div>
     <%= render "comments/form" %>
 
     <div class="comments">
         <%= render @discussion.comments %>
     </div>
-</header>
+</div>
