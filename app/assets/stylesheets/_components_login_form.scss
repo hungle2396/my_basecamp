@@ -1,21 +1,20 @@
 @import "abstract_variables";
 
 .login {
-    width: 100%;
-    height: 80%;
-    position: relative;
-    background-size: 25%;
     background-repeat: no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
-
+    height: 90%;
+    position: relative;
+    
     &__template {
         width: 90rem;
         background-image: linear-gradient(to right bottom, $primary-yellow, $primary-orange);
         display: flex;
         padding: 5rem 2rem;
         border-radius: 1rem;
+        margin-bottom: 100px;
         overflow: hidden;
         box-shadow: 0 0 1rem rgb(156, 156, 156);
         position: relative;

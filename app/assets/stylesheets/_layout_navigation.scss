@@ -1,16 +1,13 @@
 @import "abstract_variables";
 
 .navigation {
-
-    &__container {
-        max-width: 120rem;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 2rem 0;
-    }
-
+    max-width: 120rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10%;
+    
     &__list {
         display: flex;
         list-style: none;
