@@ -40,7 +40,7 @@
 
 .comments {
     margin-top: 20px;
-    width: fit-content;
+    width: 320px;
 
     &_destroy_svg, &_edit_svg {
         width: 30px;
@@ -56,24 +56,22 @@
         padding-bottom: 10px;
     }
 
-    &_item div {
+    &_item div:first-child {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
     }
 
-    &_item div p:first-child {
-        margin-bottom: 5px;
+    &_item .comments_action-btns {
+        display: flex;
+        align-items: flex-start;
     }
+
 }
 
 
 .comments_item div:first-child {
     margin-right: 20px;
-}
-
-.comments_action-btns p {
-    padding: 5px;
 }
 
 .comments_item:first-child {
