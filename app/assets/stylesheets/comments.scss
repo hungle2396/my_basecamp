@@ -5,15 +5,29 @@
 
 .comment {
 
+    &_name {
+        color: #5B5C5E;
+    }
+
+    &_form {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
     &_field {
-        height: 35px;
-        min-width: 220px;
+        height: 45px;
+        flex-grow: 1;
+        margin-right: 20px;
+        border-top-color: $primary-orange;
+        border-color: $primary-yellow;
+        border-width: 1px;
     }
 
     &_submit {
-        height: 35px;
-        padding-left: 5px;
-        padding-right: 5px;
+        height: 45px;
+        font-size: 24px;
+        padding-left: 30px;
+        padding-right: 30px;
         border-radius: 5px;
         background-color: $primary-white-2;
         cursor: pointer;
@@ -40,7 +54,7 @@
 
 .comments {
     margin-top: 20px;
-    width: 320px;
+    width: 100%;
 
     &_destroy_svg, &_edit_svg {
         width: 30px;
@@ -51,7 +65,7 @@
     &_item {
         display: flex;
         justify-content: space-between;
-        border-bottom: 1px solid black;
+        border-bottom: 1px solid $primary-yellow;
         padding-top: 10px;
         padding-bottom: 10px;
     }
@@ -75,9 +89,5 @@
 }
 
 .comments_item:first-child {
-    border-top: 1px solid black;
-}
-
-.comments_item .comment_name {
-    color: blue;
+    border-top: 1px solid $primary-yellow;
 }

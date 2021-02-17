@@ -1,4 +1,4 @@
-<%= form_with(model: [@discussion, @comment], local: true) do |form|%>
-    <%= form.text_field :body, class: "comment_field"%>
-    <%= form.submit "Comment", class: "comment_submit" %>
+<%= form_with(model: [@discussion, @comment], local: true, class: "comment_form") do |form|%>
+<%= form.text_field :body, class: "comment_field"%>
+<%= form.submit "Comment", class: "comment_submit" %>
 <% end %>

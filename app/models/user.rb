@@ -13,6 +13,6 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   def username
-    return email.split('@')[0]
+    return "@#{email.split('@')[0]}"
   end
 end
