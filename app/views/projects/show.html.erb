@@ -1,80 +1,104 @@
 <header class="header">
     <%= render "shared/navigation" %>
     <%= render "shared/errors" %>
-    <div class="header__content__container">
-        <div class="header__content__primary header__mixed__color">
-            <h1><%= @project.title %></h1>
-        </div>
+    <div class="project__content__container">
 
-        <div class="project__invite__btn btn__medium btn__color__yellow__orange btn__animation__expand">
-            <%= inline_svg_tag "add.svg", class: "project__invite__svg" %>
-            <%= link_to "invite user", new_project_invitation_path(@project), class: "project__invite__link" %>
-        </div>
-        
+        <div class="project__main__content">
+            <div class="header__content__primary header__mixed__color">
+                <h1><%= @project.title %></h1>
+            </div>
 
-        <div class="project__btns__container">
-            <div class="project__btns__left__container">
-                <%= link_to "Back", user_path(@user), class: "btn__square btn__color__yellow__orange project__btn" %>
-            
-            
-                <%= link_to "Edit project", edit_project_path(@project), class: "btn__square btn__color__yellow__orange project__btn" %>
+            <div class="project__invite__btn btn__medium btn__color__yellow__orange btn__animation__expand">
+                <%= inline_svg_tag "add.svg", class: "project__invite__svg" %>
+                <%= link_to "invite user", new_project_invitation_path(@project), class: "project__invite__link" %>
+            </div>
+
+            <div class="project__btns__container">
+                <div class="project__btns__left__container">
+                    <%= link_to "Back", user_path(@user), class: "btn__square btn__color__yellow__orange project__btn" %>
+                
+                
+                    <%= link_to "Edit project", edit_project_path(@project), class: "btn__square btn__color__yellow__orange project__btn" %>
+                </div>
+                
+
+                <div class="project__btns__right__container">
+                    <%= link_to "Delete project", project_path(@project), method: :delete, data: { confirm: "Are you sure?" }, class: "btn__square project__btn btn__color__red" %>
+                </div>
+            </div>
+
+            <div class="project__description__show">
+                <p><%= @project.description%></p>
             </div>
             
-
-            <div class="project__btns__right__container">
-                <%= link_to "Delete project", project_path(@project), method: :delete, data: { confirm: "Are you sure?" }, class: "btn__square project__btn btn__color__red" %>
-            </div>
-        </div>
-
-        <p><%= @project.description%></p>
-        <div>
-            <p>Attachments:</p>
-            <div class="attachments">
-                <% if @project.uploads.attached? %>
-                    
-                        <% @project.uploads.each do |upload| %>
-                            <div class="attachment">
-                                <% if upload.variable? %>
-                                    <%= link_to image_tag(upload.variant(resize: "400x400"), class: "project_upload"), upload %> 
-                                <% elsif upload.previewable? %>
-                                    <%= link_to image_tag(upload.preview(resize: "400x400"), class: "project_upload"), rails_blob_path(upload, disposition: :attachment) %>
-                                    
-                                <% elsif upload.image? %>
-                                    <%= link_to image_tag(upload, width: 400, class: "project_upload"), upload %>
-                                    
-                                <% else %>
-                                    <%= link_to upload.filename, rails_blob_path(upload, disposition: :attachment) %>
-                                    
-                                <% end %>
-                                <div class="attachment__button_wrapper">
-                                    <%= button_to "Delete", {action: "destroy_upload", params: {upload_id: upload.id}}, {class: "btn__small"} %>
+            <div>
+                <p>Attachments:</p>
+                <div class="attachments">
+                    <% if @project.uploads.attached? %>
+                        
+                            <% @project.uploads.each do |upload| %>
+                                <div class="attachment">
+                                    <% if upload.variable? %>
+                                        <%= link_to image_tag(upload.variant(resize: "400x400"), class: "project_upload"), upload %> 
+                                    <% elsif upload.previewable? %>
+                                        <%= link_to image_tag(upload.preview(resize: "400x400"), class: "project_upload"), rails_blob_path(upload, disposition: :attachment) %>
+                                        
+                                    <% elsif upload.image? %>
+                                        <%= link_to image_tag(upload, width: 400, class: "project_upload"), upload %>
+                                        
+                                    <% else %>
+                                        <%= link_to upload.filename, rails_blob_path(upload, disposition: :attachment) %>
+                                        
+                                    <% end %>
+                                    <div class="attachment__button_wrapper">
+                                        <%= button_to "Delete", {action: "destroy_upload", params: {upload_id: upload.id}}, {class: "btn__small"} %>
+                                    </div>
                                 </div>
-                            </div>
-                        <%end%>
-                    
+                            <%end%>
+                        
+                    <% end %>
+                </div>
+
+                <%= form_with(model: @project, local: true, url: { action: "add_upload" }, method: "post") do |f| %>
+
+                        <div class="attachment__add-field">
+                            <%= f.file_field :uploads, multiple: true %>
+                            <%= f.submit "Add", class: "btn__small btn__color__yellow__orange project__form__submit" %>
+                        </div>
+                        
                 <% end %>
-            </div>
 
-            <%= form_with(model: @project, local: true, url: { action: "add_upload" }, method: "post") do |f| %>
-
-                    <div class="attachment__add-field">
-                        <%= f.file_field :uploads, multiple: true %>
-                        <%= f.submit "Add", class: "btn__small btn__color__yellow__orange project__form__submit" %>
+                <div class="project__features__container">
+                    <div class="project__feature">
+                        <%= inline_svg_tag "speech-bubble.svg", class: "project__feature__svg" %>
+                        <%= link_to "Public Chat Room", chatrooms_path, class: "project__feature__link" %>
                     </div>
-                    
-            <% end %>
 
-            <div class="project__features__container">
-                <div class="project__feature">
-                    <%= inline_svg_tag "speech-bubble.svg", class: "project__feature__svg" %>
-                    <%= link_to "Public Chat Room", chatrooms_path, class: "project__feature__link" %>
-                </div>
-
-                <div class="project__feature">
-                    <%= inline_svg_tag "discussion.svg", class: "project__feature__svg" %>
-                    <%= link_to "Discussions", project_discussions_path(project_id: @project.id), class: "project__feature__link" %>
+                    <div class="project__feature">
+                        <%= inline_svg_tag "discussion.svg", class: "project__feature__svg" %>
+                        <%= link_to "Discussions", project_discussions_path(project_id: @project.id), class: "project__feature__link" %>
+                    </div>
                 </div>
             </div>
+        </div>
+
+        <div class="project__users__container">
+            <div class="project__users__title">
+                <h2 class="header__mixed__color">Users</h2>
+            </div>
+
+            
+            <% @groups.each do |group| %>
+                <div class="project__user">
+                    <% if group.is_admin == true %>
+                        <%= inline_svg_tag "thinking.svg", class: "project__user__svg" %>
+                    <% else %>
+                        <%= inline_svg_tag "smiling-face.svg", class: "project__user__svg" %>
+                    <% end %>
+
+                    <h3 class="project__user__name"><%= group.user.first_name %> <%= group.user.last_name %></h3>
+                </div>
+            <% end %>
         </div>
     </div>
 </header>

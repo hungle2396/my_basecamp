@@ -30,6 +30,7 @@ class ProjectsController < ApplicationController
     def show
         @project = Project.find(params[:id])
         @user = current_user
+        @groups = Group.where(project_id: @project.id)
         @find_user = @project.users.find_by(id: current_user.id)
         unless @find_user.present?
             redirect_to user_path(current_user)
@@ -49,8 +50,6 @@ class ProjectsController < ApplicationController
             render "edit"
         end
     end
-
-
     
     def destroy
         @project = Project.find(params[:id])
