@@ -4,7 +4,6 @@ class InvitationsController < ApplicationController
     end
 
     def create
-        byebug
         @project = Project.find(params[:project_id])
         user = User.find_by(email: params[:email])
         
@@ -28,6 +27,12 @@ class InvitationsController < ApplicationController
     end
 
     def destroy
+        project = Project.find(params[:id])
+        group = Group.find_by(user_id: params[:user_id],project_id: params[:project_id])
 
+        if group.destroy
+            flash[:notice] = "Removed user successfully"  
+            redirect_to project_path(project)
+        end
     end
 end

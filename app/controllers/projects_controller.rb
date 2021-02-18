@@ -29,7 +29,7 @@ class ProjectsController < ApplicationController
 
     def show
         @project = Project.find(params[:id])
-        @user = current_user
+        @this_user = Group.find_by(user_id: current_user.id)
         @groups = Group.where(project_id: @project.id)
         @find_user = @project.users.find_by(id: current_user.id)
         unless @find_user.present?
