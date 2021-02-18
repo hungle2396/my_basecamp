@@ -1,0 +1,42 @@
+<header class="header">
+    <%= render "shared/navigation" %>
+    <%= render "shared/errors" %>
+
+    <div class="header__content__container project__container attachments_page">
+        <h2 class="attachments_header header__content__primary header__mixed__color">Attachments</h2>
+        <%= link_to "Back", project_path(@project), class: "btn__square btn__color__yellow__orange project__btn" %>
+        <div class="attachments">
+            <% if @project.uploads.attached? %>
+            <% @project.uploads.each do |upload| %>
+            <div class="attachment">
+                <% if upload.variable? %>
+                <%= link_to image_tag(upload.variant(resize: "400x400"), class: "attachment_upload"), upload %>
+                <% elsif upload.previewable? %>
+                <%= link_to image_tag(upload.preview(resize: "400x400"), class: "attachment_upload"), rails_blob_path(upload, disposition: :attachment) %>
+
+                <% elsif upload.image? %>
+                <%= link_to image_tag(upload, width: 400, class: "attachment_upload"), upload %>
+
+                <% else %>
+                <%= link_to upload.filename, rails_blob_path(upload, disposition: :attachment) %>
+
+                <% end %>
+                <div class="attachment__button_wrapper">
+                    <%= button_to "Delete", {action: "destroy_upload", params: {upload_id: upload.id}}, {class: "btn__small attachments_delete-btn"} %>
+                </div>
+            </div>
+            <%end%>
+            <% end %>
+        </div>
+        <div class="attachments__form">
+            <%= form_with(model: @project, local: true, url: { action: "add_upload" }, method: "post") do |f| %>
+
+            <div class="attachment__add-field">
+                <%= f.file_field :uploads, multiple: true %>
+                <%= f.submit "Add", class: "btn__color__yellow__orange project__form__submit attachment_submit-btn" %>
+            </div>
+
+            <% end %>
+        </div>
+    </div>
+</header>

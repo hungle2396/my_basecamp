@@ -1,0 +1,42 @@
+<header class="header">
+    <%= render "shared/navigation" %>
+    <%= render "shared/errors" %>
+
+    <div class="chatroom">
+    <div class="chatroom__container">
+        <div class="chatroom__header">chat room</div>
+
+    <div class="chatroom__messages__body__container id="chatroom__messages__box">
+        <% @chatmessages.each do |message| %>
+            <div class="chatroom__messages__container">
+                <div class="chatroom__messages__user">
+                    <%= message.user.first_name %>:
+                </div>
+                <div class="chatroom__messages__text">
+                    <%= message.body %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+
+    <div class="chatroom__response__container">
+        <%= form_with(model: @chatmessage, html: {class: "chatroom__response__form", role: "form"}, local: true) do |f|%>
+            <%= f.text_field :body, class: "chatroom__response__input", placeholder: "Type something here!" %>
+
+            <%= f.submit "send", class: 'btn__small btn__color__yellow__orange btn__animation__expand' %>
+        <% end %>
+    </div>
+    </div>
+
+        <div class="chatroom__user__container">
+                <div class="chatroom__user__header">
+                    Online Users
+                </div>
+
+                <div class="chatroom__user__online">
+            
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

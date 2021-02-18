@@ -1,0 +1,11 @@
+<header class="header">
+    <%= render "shared/navigation" %>
+    <%= render "shared/errors" %>
+    <div class="header__content__container">
+        <div class="header__content__primary header__mixed__color">
+            <h1>Edit <%= @discussion.title %></h1>
+        </div>
+
+        <%= render "form" %>
+    </div>
+</header>

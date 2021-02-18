@@ -1,8 +1,13 @@
+@import "abstract_variables";
+
 .header {
     width: 100vw;
-    //height: 100vh;
-    padding-left: 40px;
-    padding-right: 40px;
+    height: 100%;
+
+    &__login__background {
+        background-image: linear-gradient(to right bottom, rgba($primary-grey, 0.7), rgba($primary-orange, 0.1)), url(asset_path(login-background));
+    }
+    
     &__content__container {
         max-width: 120rem;
         height: auto;
@@ -17,6 +22,14 @@
         display: flex;
         justify-content: center;
         font-size: 4rem;
-        margin: 3rem 0;
+        margin-bottom: 20px;
+    }
+
+    &__mixed__color {
+        background-image: linear-gradient(to right bottom, $primary-yellow, $primary-orange);
+        color: transparent;
+        background-clip: text;
+        -moz-background-clip: text;
+        -webkit-background-clip: text;
     }
 }

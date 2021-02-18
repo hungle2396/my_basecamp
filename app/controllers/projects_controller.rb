@@ -29,7 +29,8 @@ class ProjectsController < ApplicationController
 
     def show
         @project = Project.find(params[:id])
-        @user = current_user
+        @this_user = Group.find_by(user_id: current_user.id)
+        @groups = Group.where(project_id: @project.id)
         @find_user = @project.users.find_by(id: current_user.id)
         unless @find_user.present?
             redirect_to user_path(current_user)
@@ -49,7 +50,7 @@ class ProjectsController < ApplicationController
             render "edit"
         end
     end
-
+    
     def destroy
         @project = Project.find(params[:id])
         @user = current_user
@@ -57,23 +58,42 @@ class ProjectsController < ApplicationController
         redirect_to user_path(@user.id)
     end
 
+    def attachments
+        @project = Project.find(params[:id])
+        render "_attachments"
+    end
+
     def add_upload
         @project = Project.find(params[:id])
-        print params
         @project.uploads.attach(params[:project][:uploads])
         @project.save()
-        redirect_to @project
+        redirect_to attachments_project_path
     end
 
     def destroy_upload
         @project = Project.find(params[:id])
         upload = ActiveStorage::Attachment.find(params[:upload_id])
         upload.purge
-        redirect_to @project
+        redirect_to attachments_project_path
+    end
+
+    def add_user
+        @project = Project.find(params[:id])
+        user = User.find_by(email: params[:email])
+        
+        if user.present?
+            @project.users.push(user)
+            @project.save
+            flash[:notice] = "Added user successfully"
+            redirect_to project_path(@project)
+        else
+            flash[:alert] = "User email address doesn't exist"
+            redirect_to project_path(@project)
+        end
     end
 
     private
         def project_params
-            params.require(:project).permit(:title, :description, uploads: [])
+            params.require(:project).permit(:title, :description, users: [], uploads: [])
         end
 end

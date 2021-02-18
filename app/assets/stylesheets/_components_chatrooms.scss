@@ -1,0 +1,88 @@
+@import "abstract_variables";
+.chatroom {
+    display: flex;
+    justify-content: center;
+
+    &__container {
+        width: 50%;
+        background-color: #ffffff;
+        border-radius: 1rem;
+        overflow: hidden;
+        box-shadow: 0 3rem 2rem #dddcdc;
+        margin-right: 10rem;
+    }
+
+    &__header {
+        text-align: center;
+        background-image: linear-gradient(to right bottom, rgba(255, 178, 34, 0.8), rgba(241, 107, 58, 0.856));
+        padding: 3rem 0;
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: #fff;
+    }
+
+    &__messages__body__container {
+        width: 100%;
+        height: 60rem;
+        padding: 0 2rem;
+        overflow: auto;
+    }
+
+    &__messages__container {
+        display: flex;
+        padding: 1rem 0;
+        display: flex;
+        align-items: center;
+    }
+
+    &__messages__user {
+        margin-right: 1rem;
+    }
+
+    &__messages__text {
+        background-image: linear-gradient(to right bottom, rgba(255, 178, 34, 0.5), rgba(241, 107, 58, 0.5));
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+    }
+
+    &__response__container {
+        background-color: #fef6ec;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    &__response__form {
+        padding: 2rem 2rem;
+        width: 80%;
+    }
+
+    &__response__input {
+        background-color: #fef6ec;
+        width: 80%;
+        font-size: 1.8rem;
+        border: none;
+        outline: none;
+    }
+}
+
+.chatroom__user {
+    
+    &__container {
+        width: 25rem;
+        height: auto;
+        background-color: #fff;
+        border-radius: 2rem;
+        box-shadow: 0 0 15px $primary-grey;
+        overflow: hidden;
+    }
+
+    &__header {
+        width: 100%;
+        padding: 1rem 0;
+        background-image: linear-gradient(to right bottom, rgba(255, 178, 34, 0.8), rgba(241, 107, 58, 0.856));
+        text-align: center;
+        color: #fff;
+    }
+}
