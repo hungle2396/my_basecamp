@@ -1,8 +1,8 @@
 <header class="header">
     <%= render "shared/navigation" %>
     <%= render "shared/errors" %>
-
-    <div class="discussion_comments project__container">
+<div class="project__container">
+    <div class="discussion_comments">
     <h1>Discussion topic: <%= @discussion.description%></h1>
     <div class="discussion__actions">
         <%= link_to "Delete discussion", { action: "destroy", id: @discussion.id },
@@ -14,5 +14,6 @@
 
     <div class="comments">
         <%= render @discussion.comments %>
+    </div>
     </div>
 </header>
