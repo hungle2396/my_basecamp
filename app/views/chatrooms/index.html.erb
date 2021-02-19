@@ -30,7 +30,7 @@
 
         <div class="chatroom__user__container">
                 <div class="chatroom__user__header">
-                    Users
+                    All Users
                 </div>
 
                 <div class="chatroom__user__online">
@@ -38,10 +38,10 @@
                         <div class="project__user">
                                 <% if user.admin == true %>
                                     <%= inline_svg_tag "thinking.svg", class: "project__user__svg" %>
-                                    <h3 class="project__user__name"><%= group.user.first_name %> [admin]</h3>
+                                    <h3 class="project__user__name"><%= user.first_name %> [admin]</h3>
                                 <% else %>
                                     <%= inline_svg_tag "smiling-face.svg", class: "project__user__svg" %>
-                                    <h3 class="project__user__name"><%= group.user.first_name %></h3>
+                                    <h3 class="project__user__name"><%= user.first_name %></h3>
                                 <% end %>
                             </div>
                     <% end %>
