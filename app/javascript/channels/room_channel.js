@@ -12,10 +12,10 @@ consumer.subscriptions.create("RoomChannel", {
 
   received(data) {
     // Called when there's incoming data on the websocket for this channel
-    // const chatmessagesContainer = document.getElementById("chatroom__messages__box");
+    // let chatmessagesContainer = document.getElementById("chatroom__messages__box");
 
     // chatmessagesContainer.append(data.foo);
 
-    $("#chatroom__messages__box").append(data.foo);
+    // $("#chatroom__messages__box").append(data.foo);
   }
 });

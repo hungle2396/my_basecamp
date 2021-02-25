@@ -30,11 +30,21 @@
 
         <div class="chatroom__user__container">
                 <div class="chatroom__user__header">
-                    Online Users
+                    All Users
                 </div>
 
                 <div class="chatroom__user__online">
-            
+                    <% @users.each do |user| %>
+                        <div class="project__user">
+                                <% if user.admin == true %>
+                                    <%= inline_svg_tag "thinking.svg", class: "project__user__svg" %>
+                                    <h3 class="project__user__name"><%= user.first_name %> [admin]</h3>
+                                <% else %>
+                                    <%= inline_svg_tag "smiling-face.svg", class: "project__user__svg" %>
+                                    <h3 class="project__user__name"><%= user.first_name %></h3>
+                                <% end %>
+                            </div>
+                    <% end %>
                 </div>
             </div>
         </div>

@@ -1,13 +1,17 @@
 class ChatmessagesController < ApplicationController
     before_action :authenticate_user!
 
-    def create
-        chatmessage = Chatmessage.new(chatmessage_params)
-        chatmessage.user = current_user
+    def new
+        @chatmessage = Chatmessage.new
+    end
 
-        if chatmessage.save
-            ActionCable.server.broadcast "room_channel",
-                                         foo: chatmessage.body
+    def create
+        @chatmessage = Chatmessage.create(chatmessage_params)
+        @chatmessage.user = current_user
+
+        if @chatmessage.save
+            # ActionCable.server.broadcast "room_channel",
+            #                              foo: @chatmessage.body
 
             redirect_to chatrooms_path
         end
