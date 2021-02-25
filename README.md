@@ -3,7 +3,6 @@
 ## To see the heroku website
 
 go to https://basecamp-17.herokuapp.com
-Welcome to part 3!
 
 ## This steps are necessary to get the application up and running.
 
@@ -19,11 +18,11 @@ Welcome to part 3!
 
 **it happens on main branch**  
 $ heroku login  
-$ heroku git:clone -a basecamp-17  
-$ cd basecamp-17  
+$
+$
 $ git add .  
 $ git commit -am "make it better"  
-$ git push heroku main:master  
+$ git push heroku main  
 $ heroku run rails db:migrate
 
 ## Current website's features
@@ -31,6 +30,8 @@ $ heroku run rails db:migrate
 - you can sign in, log in and sign out
 - you can edit profile or destroy it (within users/edit page)
 - you can create projects within your profile
-- to see all users, go to /users, there you can make website admins or remove admins.
+- you can create projects
+- inside projects you can create discutions, attachments, and todo list
+- you can use a chatroom inside a project
 
 test
