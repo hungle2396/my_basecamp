@@ -5,10 +5,11 @@
   <div class="sign_up">
     <div class="sign_up_container">
       <div class="sign_up_left_container">
+        <%= inline_svg_tag "undraw_sign_in.svg", class: "sign_up_left_container_svg" %>
       </div>
 
       <div class="sign_up_right_container">
-        <h2 class="sign_up_header">Sign up</h2>
+        <h1 class="sign_up_header header__mixed__color">Sign up</h1>
 
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= render "devise/shared/error_messages", resource: resource %>
@@ -42,7 +43,7 @@
           </div>
 
           <div class="actions">
-            <%= f.submit "Sign up", class: "btn__circle sign_up_btn" %>
+            <%= f.submit "Create account", class: "btn__circle btn__color__yellow__orange sign_up_btn" %>
           </div>
         <% end %>
       </div>

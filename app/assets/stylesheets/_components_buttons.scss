@@ -68,7 +68,7 @@
     }
 
     &__circle:hover, &__square:hover {
-        transform: translateY(-0.5rem);
+        transform: translateY(-0.2rem);
         box-shadow: 1rem 1rem 2rem rgba(20, 20, 18, 0.5);        /* x y blur color */
 
         &::after {

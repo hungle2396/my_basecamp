@@ -3,14 +3,22 @@
     justify-content: center;
 }
 .notice__container, .alert__container {
-    display: inline-block;
+    display: flex;
     border-radius: 0.5rem;
+    align-items: center;
+    font-weight: 600;
 }
 
 .notice__container {
-    background-color: #80db80;
+    color: #5ac55a;
 }
 
 .alert__container {
-    background-color: #df4f4f;
+    color: #df4f4f;
+}
+
+.message__svg {
+    width: 30px;
+    height: 30px;
+    margin-right: 1rem;
 }

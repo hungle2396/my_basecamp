@@ -1,5 +1,8 @@
-<header class="header header__login__background">
+<header class="header header__login__background header__no__scroll">
   <%= render "shared/navigation" %>
+
+  <%= render "shared/errors" %>
+
   <div class="login">
     <div class="login__template">
       <div class="login__container">
@@ -42,8 +45,8 @@
           <div class="actions">
             <%= f.submit "Log in", class: "btn__medium btn__animation__expand login__btn" %>
           </div>
-            <% end %>
-          </div>
+        <% end %>
+      </div>
 
       <div class="login__signup__template"
           <div class="login__signup__container">

@@ -1,9 +1,10 @@
-<header class="header header_no_scroll">
+<header class="header header__no__scroll">
 
+  <%= render "shared/navigation" %>
   <div class="edit__template">
     <div class="edit__container">
       <div class="edit__title__container">
-        <h2 class="edit__title">Edit <%= resource_name.to_s.humanize %></h2>
+        <h2 class="edit__title header__mixed__color">Edit <%= resource_name.to_s.humanize %></h2>
       </div>
 
       <div class="edit__form__container">
@@ -11,33 +12,37 @@
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
           <%= render "devise/shared/error_messages", resource: resource %>
 
-          <div class="field">
-            <%= f.label :first_name %><br />
-            <%= f.text_field :first_name, autofocus: true, class: "edit__textfield" %>
+          <div class="edit__form__field__container">
+            <div class="field">
+              <%= f.label :first_name %><br />
+              <%= f.text_field :first_name, autofocus: true, class: "edit__textfield" %>
+            </div>
+
+            <div class="field">
+              <%= f.label :last_name %><br />
+              <%= f.text_field :last_name, autofocus: true, class: "edit__textfield" %>
+            </div>
           </div>
+          
+          <div class="edit__form__field__container">
+            <div class="field">
+              <%= f.label :email %><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "edit__textfield" %>
+            </div>
 
-          <div class="field">
-            <%= f.label :last_name %><br />
-            <%= f.text_field :last_name, autofocus: true, class: "edit__textfield" %>
-          </div>
-
-          <div class="field">
-            <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "edit__textfield" %>
-          </div>
-
-          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-          <% end %>
-
-          <div class="field">
-            <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-            <%= f.password_field :password, autocomplete: "new-password", class: "edit__textfield" %>
-            <% if @minimum_password_length %>
-              <br />
-              <em><%= @minimum_password_length %> characters minimum</em>
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
             <% end %>
+
+            <div class="field">
+              <%= f.label :password %> <i>(leave blank if you don't want to change it)</i>
+              <% if @minimum_password_length %>
+              
+              <% end %>
+              <%= f.password_field :password, autocomplete: "new-password", class: "edit__textfield" %>
+            </div>
           </div>
+          
 
           <div class="field">
             <%= f.label :password_confirmation %><br />

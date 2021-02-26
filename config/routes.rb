@@ -1,12 +1,5 @@
 Rails.application.routes.draw do
   root to: "users#show"
-  
-  get 'welcome/index'
-  get "how-it-works", to: "pages#how_it_works"
-  get "before-after", to: "pages#before_after"
-  get "got-clients", to: "pages#got_clients"
-  get "pricing", to: "pages#pricing"
-  get "support", to: "pages#support"
 
   devise_scope :user do
     authenticated :user do

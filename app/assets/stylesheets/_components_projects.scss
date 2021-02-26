@@ -171,6 +171,14 @@
   &__user__name {
     margin-right: 10px;
   }
+
+  &__empty__text {
+    background-image: linear-gradient(to right bottom, $primary-yellow-light, $primary-orange-light);
+    background-clip: text;
+    -moz-background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
 }
 
 .project__form {
@@ -247,6 +255,7 @@
     margin-right: -50%;
     padding: 10rem 4rem 2rem 4rem;
     z-index: 100;
+    font-size: 2.3rem;
   }
 
   &__feature__svg {

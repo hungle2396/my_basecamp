@@ -4,14 +4,14 @@
 
     &__template {
         width: 100%;
-        height: 100%;
+        height: auto;
         display: flex;
         justify-content: center;
-        align-items: center;
+        margin-top: 5rem;
     }
 
     &__container {
-        width: 400px;
+        max-width: 80rem;
         text-align: left;
         border-radius: 10px;
         box-shadow: 0 0 20px $primary-grey;
@@ -20,17 +20,19 @@
 
     &__title__container {
         padding: 10px 0;
-        background-image: linear-gradient(to right bottom, $primary-yellow, $primary-orange);
     }
 
     &__title {
         text-align: center;
         font-size: 4rem;
-        color: rgb(48, 46, 46);
     }
 
     &__form__container {
         padding: 20px 40px;
+    }
+
+    &__form__field__container {
+        display: flex;
     }
 
     &__textfield {
@@ -40,5 +42,14 @@
 
     &__btn {
         margin-bottom: 20px;
+    }
+}
+
+.field {
+    margin-right: 5rem;
+    margin-bottom: 1rem;
+
+    &__center {
+        margin-left: 10rem;
     }
 }
