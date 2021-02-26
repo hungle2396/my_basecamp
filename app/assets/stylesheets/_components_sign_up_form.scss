@@ -5,12 +5,10 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    margin-top: -10rem;
-
+    margin-top: 10rem;
     &_container {
-        width: 50%;
+        max-width: 100rem;
         height: auto;
         border-radius: 1rem;
         display: flex;
