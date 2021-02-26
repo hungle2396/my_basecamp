@@ -6,8 +6,10 @@ class AttachmentsController < ApplicationController
 
     def create
         @project = Project.find(params[:project_id])
-        @project.uploads.attach(params[:project][:uploads])
-        @project.save()
+        if params[:project] != nil
+            @project.uploads.attach(params[:project][:uploads])
+            @project.save()
+        end
         redirect_to project_attachments_path
     end
 
