@@ -5,10 +5,16 @@
     <div class="discussion_comments">
     <h1>Discussion topic: <%= @discussion.description%></h1>
     <div class="discussion__actions">
-        <%= link_to "Delete discussion", { action: "destroy", id: @discussion.id },
-                                        method: :delete, data: { confirm: "Are you sure?" }, class: "discussion_btn_item btn__simple btn__color__yellow__orange discussion__btn" %>
-        <%= link_to "Edit discussion", edit_discussion_path(@discussion), class: " discussion_btn_item btn__simple btn__color__yellow__orange discussion__btn"%>
-        <%= link_to "Project", project_path(@discussion.project),  class: "discussion_btn_item btn__simple btn__color__yellow__orange discussion__btn"%>
+        <div class="discussion__left__btns">
+            <%= link_to "Project", project_path(@discussion.project),  class: "discussion_btn_item btn__simple btn__color__yellow__orange discussion__btn"%>
+
+            <%= link_to "Edit discussion", edit_discussion_path(@discussion), class: " discussion_btn_item btn__simple btn__color__yellow__orange discussion__btn"%>
+        </div>
+
+        <div class="discussion__right__btns">
+            <%= link_to "Delete discussion", { action: "destroy", id: @discussion.id },
+            method: :delete, data: { confirm: "Are you sure?" }, class: "discussion_btn_item btn__simple btn__color__red discussion__btn" %>
+        </div>
     </div>
     <%= render "comments/form" %>
 
