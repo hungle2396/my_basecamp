@@ -1,6 +1,15 @@
 class InvitationsController < ApplicationController
+    before_action :authenticate_user!
+
     def new
-        
+        user = current_user
+        project = Project.find(params[:project_id])
+        group = Group.find_by(user_id: user, project_id: project)
+
+        if group.is_admin === false
+            flash[:alert] = "Ah ah ah, you don't have access to that page!"
+            redirect_to user_path(current_user)
+        end
     end
 
     def create
