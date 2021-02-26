@@ -18,7 +18,6 @@ class UsersController < ApplicationController
 
     def index
         if !current_user.admin?
-            flash[:alert] = "You don't have access to this page"
             redirect_to user_path(current_user)
         end
         @users = User.all.paginate(page: params[:page], per_page: 5)
