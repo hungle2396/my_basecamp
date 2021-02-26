@@ -1,1 +1,8 @@
-<%= render 'form' %>
+<header class="header">
+    <%= render "shared/navigation" %>
+    <%= render "shared/errors" %>
+    <div class="project__container comments">
+        <%= link_to "Back", discussion_path(@discussion), class: "btn__square btn__color__yellow__orange project__btn" %>
+        <%= render 'form' %>
+    </div>
+</header>
