@@ -68,6 +68,7 @@ class ProjectsController < ApplicationController
         @project.uploads.attach(params[:project][:uploads])
         @project.save()
         redirect_to attachments_project_path
+        
     end
 
     def destroy_upload

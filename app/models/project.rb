@@ -7,7 +7,7 @@ class Project < ApplicationRecord
 
     has_many :groups, dependent: :destroy
     has_many :users, through: :groups
-    has_many_attached :uploads
+    has_many_attached :uploads, dependent: :destroy
     has_one :chatroom, dependent: :destroy
     has_many :discussions, dependent: :destroy
 end

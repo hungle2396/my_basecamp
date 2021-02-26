@@ -28,11 +28,12 @@ Rails.application.routes.draw do
   end
 
   resources :projects do
+    
     member do
-      get "attachments"
-      post "add_upload"
-      post "destroy_upload"
       post "add_user"
+    end
+    resources :attachments, only: [:index, :create] do
+      post :destroy
     end
 
     resources :invitations, only: [:new, :create, :destroy]
