@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>Basecamp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -9,9 +10,11 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-  </head>
+    <%= favicon_link_tag asset_path('workgroup.svg') %>
+</head>
 
-  <body>
-      <%= yield %>
-  </body>
+<body>
+    <%= yield %>
+</body>
+
 </html>

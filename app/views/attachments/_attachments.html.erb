@@ -23,7 +23,7 @@
                 <% end %>
 
                 <div class="attachment__button_wrapper">
-                    <%= button_to 'Remove', project_attachment_destroy_path(@project.id, upload.id), method: "post" %>
+                    <%= button_to 'Delete', project_attachment_destroy_path(@project.id, upload.id), method: "post", class: "btn__small attachments_delete-btn" %>
                 </div>
 
             </div>
