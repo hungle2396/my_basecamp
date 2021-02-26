@@ -9,6 +9,8 @@ class AttachmentsController < ApplicationController
         if params[:project] != nil
             @project.uploads.attach(params[:project][:uploads])
             @project.save()
+        else
+            flash[:alert] = "Please choose a file before submit!"
         end
         redirect_to project_attachments_path
     end
