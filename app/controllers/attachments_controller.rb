@@ -17,6 +17,4 @@ class AttachmentsController < ApplicationController
         @upload.purge
         redirect_to project_attachments_path
     end
-
-
   end
