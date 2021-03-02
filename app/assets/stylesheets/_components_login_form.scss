@@ -19,6 +19,8 @@
         box-shadow: 0 0 1rem rgb(156, 156, 156);
         position: relative;
         z-index: 1;
+
+        animation: slide_Up 1s ease-in;
     }
 
     &__template::after {
