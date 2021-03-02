@@ -10,4 +10,5 @@ class Project < ApplicationRecord
     has_many_attached :uploads, dependent: :destroy
     has_one :chatroom, dependent: :destroy
     has_many :discussions, dependent: :destroy
+    has_many :tasks, dependent: :destroy
 end

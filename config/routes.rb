@@ -31,6 +31,7 @@ Rails.application.routes.draw do
 
     resources :invitations, only: [:new, :create, :destroy]
     resources :discussions
+    resources :tasks
   end
   
   resources :discussions do

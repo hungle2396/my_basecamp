@@ -9,7 +9,7 @@
 
             <%= link_to(edit_discussion_comment_path(@discussion, comment)) do %>
                 <%= inline_svg_tag "pencil.svg", class: "comments_edit_svg" %>
-            <%end%>
+            <% end %>
         </p>
         <p class="comment_destroy_btn">
             <%= link_to([comment.discussion, comment],

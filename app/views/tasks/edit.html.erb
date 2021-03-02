@@ -1,0 +1,14 @@
+<header class="header header__no__scroll">
+    <%= render "shared/navigation" %>
+    <%= render "shared/errors" %>
+
+    <%= form_with(model: [@project, @task], local: true) do |f| %>
+        <div class="tasks__add__container">
+            <div class="tasks__create__field">
+                <%= f.text_field :description, class: "tasks__description__field", placeholder: "Create your new task here!" %>
+    
+                <%= f.submit class: "btn__circle btn__color__yellow__orange" %>
+            </div>
+        </div>
+    <% end %>
+</header>
