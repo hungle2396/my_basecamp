@@ -1,0 +1,24 @@
+.message__container {
+    display: flex;
+    justify-content: center;
+}
+.notice__container, .alert__container {
+    display: flex;
+    border-radius: 0.5rem;
+    align-items: center;
+    font-weight: 600;
+}
+
+.notice__container {
+    color: #5ac55a;
+}
+
+.alert__container {
+    color: #df4f4f;
+}
+
+.message__svg {
+    width: 30px;
+    height: 30px;
+    margin-right: 1rem;
+}

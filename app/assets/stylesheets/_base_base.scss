@@ -1,0 +1,35 @@
+// tags
+@import "abstract_variables.scss";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html, body {
+    height: 100%;
+}
+
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-size: 62.5%;
+}
+
+body {
+    background-color: $primary-white-2;
+    font-size: 2rem;
+    font-family: 'PT Sans', sans-serif;
+    color: $primary-grey-dark;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}

@@ -1,0 +1,30 @@
+<header class="header header__no__scroll">
+  <%= render "shared/navigation" %>
+  <%= render "shared/errors" %>
+
+  <div class="sign_up">
+    <div class="sign_up_container">
+      <div class="sign_up_left_container">
+        <%= inline_svg_tag "undraw_forgot_password.svg", class: "sign_up_left_container_svg" %>
+      </div>
+
+      <div class="sign_up_right_container">
+        <h1 class="sign_up_header header__mixed__color">Forgot your password?</h1>
+
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+      
+          <div class="field field__center">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "sign_up_field" %>
+          </div>
+      
+          <div class="actions">
+            <%= f.submit "Send me reset password instructions", class: "btn__circle btn__color__yellow__orange sign_up_btn" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</header>
+

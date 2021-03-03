@@ -1,0 +1,100 @@
+// Place all the styles related to the Comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+@import "abstract_variables";
+
+.comment {
+
+    &_name {
+        color: #5B5C5E;
+    }
+
+    &_form {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &_field {
+        height: 45px;
+        flex-grow: 1;
+        margin-right: 20px;
+        border-top-color: $primary-orange;
+        border-color: $primary-yellow;
+        border-width: 1px;
+        padding-left: 20px;
+        font-size: 18px;
+    }
+
+    &_submit {
+        height: 45px;
+        font-size: 24px;
+        padding-left: 30px;
+        padding-right: 30px;
+        border-radius: 5px;
+        background-color: $primary-white-2;
+        cursor: pointer;
+        border: 2px solid $primary-yellow;
+        outline: none;
+        background-image: linear-gradient(to right bottom, $primary-yellow, $primary-orange);
+        color: transparent;
+        -webkit-background-clip: text;
+        font-weight: 600;
+        transition: all 0.5s;
+
+        &:hover,
+        &:active {
+            transform: scale(1.02);
+            box-shadow: 0 0 10px $primary-grey;
+        }
+    }
+
+    &_destroy_btn, &_edit_btn {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.comments {
+    margin-top: 20px;
+    width: 100%;
+
+    &_destroy_svg, &_edit_svg {
+        width: 30px;
+        height: 30px;
+        margin-right: 8px;
+        transition: transform 0.5s;
+    }
+
+    &_destroy_svg:hover, &_edit_svg:hover {
+        transform: scale(1.2);
+    }
+
+    &_item {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid $primary-yellow;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    &_item div:first-child {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &_item .comments_action-btns {
+        display: flex;
+        align-items: flex-start;
+    }
+
+}
+
+
+.comments_item div:first-child {
+    margin-right: 20px;
+}
+
+.comments_item:first-child {
+    border-top: 1px solid $primary-yellow;
+}

@@ -1,0 +1,22 @@
+<nav class="navigation">
+    
+    <% if user_signed_in? %>
+        <%= link_to "Base Camp", user_path(current_user), :class => "navigation__base" %>
+    <% else %>
+        <%= link_to "Base Camp", unauthenticated_root_path, :class => "navigation__base" %>
+    <% end %>
+    
+    <ul class="navigation__list">
+        <% if user_signed_in? %>
+            <li class="navigation__item">
+                <% if current_user.admin? %>
+                    [Admin]
+                <% end %>
+            <%= link_to current_user.first_name, edit_user_registration_path(current_user) %></li>
+            <li class="navigation__item"><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+            <li class="navigation__item"><%= link_to "Sign Up", new_user_registration_path %></li>
+            <li class="navigation__item"><%= link_to "Sign in", new_user_session_path %></li>
+        <% end %>
+    </ul>
+</nav>

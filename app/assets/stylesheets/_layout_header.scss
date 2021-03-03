@@ -1,0 +1,39 @@
+@import "abstract_variables";
+
+.header {
+    width: 100%;
+    height: 100%;
+
+    &__login__background {
+        background-image: linear-gradient(to right bottom, rgba($primary-grey, 0.7), rgba($primary-orange, 0.1)), url(asset_path(login-background));
+    }
+    
+    &__content__container {
+        max-width: 120rem;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    &__no__scroll {
+        overflow: hidden;
+    }
+
+    &__scrollable {
+        overflow: auto;
+    }
+    
+    &__content__primary {
+        display: flex;
+        justify-content: center;
+        font-size: 4rem;
+        margin-bottom: 20px;
+    }
+
+    &__mixed__color {
+        background-image: linear-gradient(to right bottom, $primary-yellow, $primary-orange);
+        color: transparent;
+        background-clip: text;
+        -moz-background-clip: text;
+        -webkit-background-clip: text;
+    }
+}

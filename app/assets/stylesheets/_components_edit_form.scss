@@ -1,0 +1,55 @@
+@import "abstract_variables";
+
+.edit {
+
+    &__template {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        margin-top: 5rem;
+    }
+
+    &__container {
+        max-width: 80rem;
+        text-align: left;
+        border-radius: 10px;
+        box-shadow: 0 0 20px $primary-grey;
+        overflow: hidden;
+    }
+
+    &__title__container {
+        padding: 10px 0;
+    }
+
+    &__title {
+        text-align: center;
+        font-size: 4rem;
+    }
+
+    &__form__container {
+        padding: 20px 40px;
+    }
+
+    &__form__field__container {
+        display: flex;
+    }
+
+    &__textfield {
+        margin-bottom: 10px;
+        padding: 2px 5px;
+    }
+
+    &__btn {
+        margin-bottom: 20px;
+    }
+}
+
+.field {
+    margin-right: 5rem;
+    margin-bottom: 1rem;
+
+    &__center {
+        margin-left: 10rem;
+    }
+}

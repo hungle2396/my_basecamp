@@ -1,0 +1,71 @@
+.attachments {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    margin-bottom: 45px;
+}
+
+.attachments_page {
+    margin-bottom: 60px!important;
+}
+
+.attachments_header {
+    margin-bottom: 60px;
+}
+
+.attachments__form {
+    text-align: center;
+    display: flex;
+}
+
+.attachments__form form {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.attachment {
+    position: relative;
+    margin-bottom: 20px;
+    min-width: 120px;
+    min-height: 120px;
+    background-color: bisque;
+    height: fit-content;
+}
+
+.attachment__button_wrapper {
+    position: absolute;
+    cursor: pointer;
+    left: 7px;
+    bottom: 14px;
+}
+
+.attachment_upload {
+    cursor: nesw-resize;
+    display: flex;
+    overflow: hidden;
+}
+
+.attachments_delete-btn {
+    background-color: white;
+}
+
+.attachment__add-field {
+    width: fit-content;
+    font-size: 1.5rem;
+    padding: 2.5rem 2.5rem;
+    border: 0.2rem solid #d68940;
+    margin-bottom: 10px;
+    border-radius: 50px;
+}
+
+.attachment__add-field input[type="file" i] {
+    background-color: white;
+    font-size: 24px;
+}
+
+.attachment_submit-btn {
+    font-size: 24px;
+    padding: 10px 30px;
+    border-radius: 30px;
+}

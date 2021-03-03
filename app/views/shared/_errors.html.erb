@@ -1,0 +1,14 @@
+<% if flash.alert %>
+    <div class="message__container">
+        <div class="alert__container">
+            <div class="message"><%= flash[:alert] %></div>
+        </div>
+    </div>
+<% elsif flash.notice %>
+    <div class="message__container">
+        <div class="notice__container">
+            <%= inline_svg_tag "check-mark.svg", class: "message__svg" %>
+            <div class="message"><%= flash[:notice] %></div>
+        </div>
+    </div>
+<% end %>

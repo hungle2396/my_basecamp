@@ -1,0 +1,40 @@
+<div class="header__content__container">
+    <div class="header__content__primary header__mixed__color">
+        <h1>Your Projects</h1>
+    </div>
+
+    <div class="projects__admin__btns__container">
+        <% if user_signed_in? && current_user.admin? %>
+            <%= link_to "Create new project", new_project_path, class: "btn__square btn__color__yellow__orange project__btn" %>
+
+            <%= link_to "All users", users_path, class: "btn__square btn__color__yellow__orange project__btn" %>
+
+            <%= link_to "All users' projects", projects_path, class: "btn__square btn__color__yellow__orange project__btn" %>
+        <% else %>
+            <%= link_to "Create new project", new_project_path, class: "btn__square btn__color__yellow__orange project__btn" %>
+        <% end %>
+    </div>
+
+    <div class="flickr_pagination">
+        <div class="page_info">
+            <%= page_entries_info objects %>
+        </div>
+        <%= will_paginate objects, :container => false %>
+    </div>
+
+    <% if user_signed_in? && objects.present? %>
+        <ul class="project__list">
+            <% objects.each do |obj| %>
+                <li class="project__item">
+                    <h3 class="project__title"><%= link_to obj.title, project_path(obj), class: "project__link" %></h3>
+                    <p class="project__description">
+                        <%= obj.description %>
+                    </p>
+                </li>
+            <% end %>
+        </ul>
+    <% else %>
+        <h1 class="project__empty__text">You don't have any project yet!</h1>
+        <h1 class="project__empty__text">Let's create one!</h1>
+    <% end %>
+</div>

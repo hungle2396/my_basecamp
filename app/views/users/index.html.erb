@@ -1,0 +1,64 @@
+<header class="header">
+    <%= render "shared/navigation" %>
+    <%= render "shared/errors" %>
+
+    <section class="users-page container">
+    <h1>User Accounts</h1>
+
+    <div class="flickr_pagination">
+        <div class="page_info">
+            <%= page_entries_info @users %>
+        </div>
+        <%= will_paginate @users, :container => false %>
+    </div>
+
+    <table cellspacing="0" cellpadding="0" border="1" class="table table-striped">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Action</th>
+            <th>Action</th>
+            <th>Action</th>
+            <th>Action</th>
+        </tr>
+        <% @users.each do |user| %>
+            <tr>
+                <td class=""><%= link_to user.first_name, user %></td>
+                <td><%= user.last_name %></td>
+                <td><%= user.email %></td>
+                <td>
+                    <% if user.admin? %>
+                        Admin
+                    <% else %>
+                        User
+                    <% end %>
+                </td>
+                <td>
+                    <% if user.admin? %>
+                        <%= button_to "Remove admin", {action: "removeAdmin", id: user.id},
+                                class: "btn__normal btn__color__yellow__orange" %>
+                    <% else %>
+                        <%= button_to("Make admin", {action: "makeAdmin", id: user.id},
+                                class: "btn__normal btn__color__yellow__orange") %>
+                    <% end %>
+
+                    
+                </td>
+                <td>
+                    <%= link_to "view user", user_path(user), class: "btn__normal btn__color__yellow__orange" %>
+                </td>
+                <td>
+                    <%= link_to "edit user", edit_user_registration_path(user), class: "btn__normal btn__color__yellow__orange" %>
+                </td>
+                <td>
+                    <% if !user.admin? %>
+                        <%= link_to "delete user", user_path(user), method: :delete, class: "btn__normal btn__color__yellow__orange" %>
+                    <% end %>
+                </td>
+            </tr>
+        <% end %>
+    </table>
+</section>
+</header>

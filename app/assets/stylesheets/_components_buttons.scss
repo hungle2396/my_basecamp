@@ -1,0 +1,155 @@
+/********** Button circle and square shape ******/
+// project components 
+
+@import "abstract_variables";
+
+.btn {
+
+    &__simple {
+        display: inline-block;
+        padding: 1.5rem 3rem;
+        text-decoration: none;
+        border: 2px solid #d68940;
+        border-radius: 10rem;
+
+    }
+
+    &__normal,
+    &__normal:link,
+    &__normal:visited {
+        font-size: 2rem;
+        padding: 1.5rem 3rem;
+        text-decoration: none;
+        border: 0.5rem solid #d68940;
+        border-radius: 10rem;
+    }
+
+    &__small,
+    &__small:link,
+    &__small:visited {
+        font-size: 1.5rem;
+        padding: 0.5rem 1.5rem;
+        border: 0.2rem solid #d68940;
+        border-radius: 10rem;
+        cursor: pointer;
+    }
+
+    &__medium,
+    &__medium:link,
+    &__medium:visited {
+        font-size: 1.8rem;
+        padding: 0.8rem 2rem;
+        border-radius: 10rem;
+        outline: none;
+        cursor: pointer;
+    }
+
+    &__circle, &__square,
+    &__circle:link, &__square:link,
+    &__circle:visited, &__square:visited {
+        font-size: 2rem;
+        display: inline-block;
+        text-decoration: none;
+        transition: all 0.5s;     /* transition everything back for 0.5s */
+        position: relative;       /* for button after */
+        // Change for the <button> element
+        border: none;
+        cursor: pointer;
+    }
+
+    &__circle {
+        padding: 1.5rem 3rem;
+        border-radius: 10rem;
+    }
+
+    &__square {
+        padding: 1rem 2rem;
+        border-radius: 1rem;
+    }
+
+    &__circle:hover, &__square:hover {
+        transform: translateY(-0.2rem);
+        box-shadow: 1rem 1rem 2rem rgba(20, 20, 18, 0.5);        /* x y blur color */
+
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+    
+    &__circle:active, &__circle:focus,
+    &__square:active, &__square:focus {
+        outline: none;
+        transform: translateY(-0.2rem);
+    }
+    
+    &__circle::after,
+    &__square::after {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    
+        transition: all 0.7s;
+    }
+
+    &__square::after {
+        border-radius: 1rem;
+    }
+}
+
+.btn__color {
+
+    &__yellow__orange {
+        text-transform: none;
+        border: none;
+        background-image: linear-gradient(to right bottom, $primary-yellow-button, $primary-orange-button);
+        color: $primary-grey-dark;
+        font-weight: 700;
+    }
+
+    &__red {
+        background-color: $primary-red;
+        font-weight: 700;
+    }
+}
+
+.btn__animation {
+    &__expand {
+        font-size: 1.8rem !important;
+        outline: none;
+        cursor: pointer;
+        transition: transform 0.5s;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+
+        &:active {
+            transform: translateY(5px);
+        }
+    }
+
+    &__fancy {
+
+        &::after {
+            background-image: linear-gradient(to right bottom, $primary-yellow-button, $primary-orange-button);
+        }
+    }
+}
+
+@media only screen and (max-width: 102.3rem) {
+    .btn {
+
+        &__circle, &__square,
+        &__circle:link, &__square:link,
+        &__circle:visited, &__square:visited {
+            font-size: 2rem;
+        }
+    }
+}

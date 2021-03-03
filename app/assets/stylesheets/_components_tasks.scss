@@ -1,0 +1,124 @@
+@import "./abstract_variables";
+
+.tasks {
+
+    &__template {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    &__left__container, &__middle__container, &__right__container {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__left__container {
+        flex-basis: 25%;
+    }
+
+    &__middle__container {
+        flex-basis: 50%;
+        width: 80rem;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__right__container {
+        flex-basis: 25%;
+    }
+}
+
+.tasks {
+
+    &__container {
+        width: 80%;
+        height: 100%;
+    }
+
+    &__title {
+        text-align: center;
+    }
+
+    &__add__container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
+
+    &__create__field {
+        display: flex;
+        justify-content: center;
+        width: 90%;
+        background-color: $primary-white-2;
+        border-radius: 10rem;
+        box-shadow: 0 0 1rem $primary-grey;
+        overflow: hidden;
+        transition: width 1s;
+
+        &:focus-within {
+            width: 100%;
+        }
+    }
+
+    &__description__field {
+        width: 100%;
+        padding: 0 2rem;
+        outline: none;
+        border: none;
+        font-size: 2rem;
+    }
+
+    &__list__container {
+        height: 60rem;
+        // background-color: $primary-white-2;
+        background-image: linear-gradient(to right bottom, rgba($primary-yellow-light, 0.4), rgba($primary-orange-light, 0.7));
+        box-shadow: 0 0 10px $primary-grey;
+        border-radius: 10px;
+    }
+
+    &__list {
+        height: 100%;
+        overflow: auto;
+    }
+
+    &__item {
+        width: 90%;
+        margin: 2rem auto 0 auto;
+        list-style: none;
+        padding: 1rem 2rem;
+        border-radius: 0.5rem;
+        // background-image: linear-gradient(to right bottom, rgba($primary-yellow-light, 0.4), rgba($primary-orange-light, 0.7));
+        border-left: 15px solid $primary-orange-button;
+        background-color: $primary-white-2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 0 10px $primary-grey;
+    }
+
+    &__item__configuration {
+        display: flex;
+    }
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 1.5rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(to right bottom, $primary-orange-button, $primary-yellow-button);  
+    border-radius: 10px;
+}
