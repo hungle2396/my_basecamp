@@ -18,7 +18,25 @@ class InvitationsController < ApplicationController
         
         if user.present?
             group = Group.new(user_id: user.id, project_id: @project.id)
-            
+            @permitions = params[:permitions]
+            puts "BEFORE PERMITION IF"
+            if @permitions.include? "write"
+                puts "INSIDE PERMITION write"
+                group.can_write = true
+            end
+            if @permitions.include? "read"
+                puts "INSIDE PERMITION read"
+                group.can_read = true
+            end
+            if @permitions.include? "update"
+                puts "INSIDE PERMITION update"
+                group.can_update = true
+            end
+            if @permitions.include? "delete"
+                puts "INSIDE PERMITION delete"
+                group.can_delete = true
+            end
+
             if params[:role] == "admin"
                 group.is_admin = true
             else
@@ -33,6 +51,10 @@ class InvitationsController < ApplicationController
             flash[:alert] = "User email address doesn't exist"
             redirect_to project_path(@project)
         end
+    end
+
+    def permitions
+        @permitions = params[:permitions]
     end
 
     def destroy

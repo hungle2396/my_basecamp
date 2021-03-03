@@ -1,7 +1,7 @@
 <header class="header">
     <%= render "shared/navigation" %>
     <%= render "shared/errors" %>
-    
+
     <div class="invitation">
         <div class="invitation__container">
             <div class="invitation__title header__mixed__color">
@@ -11,38 +11,63 @@
             <div class="invitation__content">
                 <div class="invitation__left__container">
                     <%= form_with(local: true, url: {action: "create"}) do |f| %>
-                        <div class="invitation__email__container">
-                            <%= f.label :email, class: "invitation__email__label" %>
-                            <%= f.email_field :email, class: "invitation__email__textfield", placeholder: "Enter the user email" %>
-                        </div>
-                        
-                        <div class="invitation__role__container">
-                            <div class="invitation__roleuser__container">
-                                <%= inline_svg_tag "administration.svg", class: "invitation__svg" %>
-                                <%= f.label :admin %>
-                                <%= f.radio_button :role, "admin" %>
-                            </div>
+                    <div class="invitation__email__container">
+                        <%= f.label :email, class: "invitation__email__label" %>
+                        <%= f.email_field :email, class: "invitation__email__textfield", placeholder: "Enter the user email" %>
+                    </div>
 
-                            <div class="invitation__roleuser__container">
-                                <%= inline_svg_tag "normal_user.svg", class: "invitation__svg" %>
-                                <%= f.label :normal__user %>
-                                <%= f.radio_button :role, "normal user" %>
-                            </div>
+                    <div class="invitation__role__container">
+                        <div class="invitation__roleuser__container">
+                            <%= inline_svg_tag "administration.svg", class: "invitation__svg" %>
+                            <%= f.label :admin %>
+                            <%= f.radio_button :role, "admin" %>
                         </div>
-                        
-                        <div class="invitation__btn__container">
-                            <%= f.submit "Add user", class: "btn__medium btn__color__yellow__orange btn__animation__expand" %>
+
+                        <div class="invitation__roleuser__container">
+                            <%= inline_svg_tag "normal_user.svg", class: "invitation__svg" %>
+                            <%= f.label :normal__user %>
+                            <%= f.radio_button :role, "normal user" %>
                         </div>
-                        
+                    </div>
+
+                    <%= check_box_tag 'permitions[]', 'read' %>
+                    <%= label_tag 'permition_read', 'Read' %>
+
+                    <%= check_box_tag 'permitions[]', 'write' %>
+                    <%= label_tag 'permition_write', 'Write' %>
+
+                    <%= check_box_tag 'permitions[]', 'update' %>
+                    <%= label_tag 'permition_update', 'Update' %>
+
+                    <%= check_box_tag 'permitions[]', 'delete' %>
+                    <%= label_tag 'permition_delete', 'Delete' %>
+                    <%
+=begin%>
+                    <div class="field">
+                        <%= f.label "Permitions" %><br />
+                        <%= f.collection_check_boxes :permition_ids, Permition.all, :id, :name do |b| %>
+                        <div>
+                            <%= b.check_box %>
+                            <%= b.label %>
+                        </div>
+                        <% end %>
+                    </div>
+                    <%
+=end%>
+
+                    <div class="invitation__btn__container">
+                        <%= f.submit "Add user", class: "btn__medium btn__color__yellow__orange btn__animation__expand" %>
+                    </div>
+
                     <% end %>
                 </div>
-            
+
                 <div class="invitation__right__container">
                     <%= inline_svg_tag "invitation.svg", class: "invitation__background__svg" %>
                 </div>
             </div>
-            
+
         </div>
     </div>
-    
+
 </header>
