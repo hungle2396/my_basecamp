@@ -75,6 +75,10 @@
 
     &__list__container {
         height: 60rem;
+        // background-color: $primary-white-2;
+        background-image: linear-gradient(to right bottom, rgba($primary-yellow-light, 0.4), rgba($primary-orange-light, 0.7));
+        box-shadow: 0 0 10px $primary-grey;
+        border-radius: 10px;
     }
 
     &__list {
@@ -83,15 +87,18 @@
     }
 
     &__item {
-        width: 99%;
-        margin-top: 2rem;
+        width: 90%;
+        margin: 2rem auto 0 auto;
         list-style: none;
         padding: 1rem 2rem;
         border-radius: 0.5rem;
-        background-image: linear-gradient(to right bottom, $primary-yellow-light, $primary-orange-light);
+        // background-image: linear-gradient(to right bottom, rgba($primary-yellow-light, 0.4), rgba($primary-orange-light, 0.7));
+        border-left: 15px solid $primary-orange-button;
+        background-color: $primary-white-2;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        box-shadow: 0 0 10px $primary-grey;
     }
 
     &__item__configuration {

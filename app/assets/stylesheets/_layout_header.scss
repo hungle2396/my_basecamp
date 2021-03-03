@@ -1,7 +1,7 @@
 @import "abstract_variables";
 
 .header {
-    width: 100vw;
+    width: 100%;
     height: 100%;
 
     &__login__background {
@@ -18,6 +18,10 @@
         overflow: hidden;
     }
 
+    &__scrollable {
+        overflow: auto;
+    }
+    
     &__content__primary {
         display: flex;
         justify-content: center;

@@ -4,8 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  #has_many :projects
-  # WHAT IS :PROJECTS??? or :GROUPS
 
   has_many :groups, dependent: :destroy
   has_many :projects, through: :groups
@@ -15,4 +13,7 @@ class User < ApplicationRecord
   def username
     return "@#{email.split('@')[0]}"
   end
+
+  validates :first_name, presence: true
+  validates :last_name, presence: true
 end
