@@ -197,6 +197,7 @@
     border: none;
     border-radius: 5px;
     outline-color: $primary-grey-medium;
+    background-color: rgba($primary-white-2, 0.8)
   }
 
   &__description__container {
@@ -211,6 +212,8 @@
   &__textarea {
     width: 80%;
     padding: 0.5rem 1rem;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 2rem;
   }
 
   &__textarea {
