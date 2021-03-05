@@ -106,6 +106,33 @@
     }
 }
 
+.tasks__edit {
+
+    &__title {
+        text-align: center;
+        font-size: 5rem;
+    }
+
+    &__container {
+        max-width: 120rem;
+        margin: 0 auto;
+    }
+
+    &__btns {
+        max-width: 120rem;
+        margin: 0 auto 2rem auto;
+    }
+
+    &__field {
+        display: flex;
+        justify-content: center;
+        width: 90%;
+        background-color: $primary-white-2;
+        border-radius: 5px;
+        box-shadow: 0 0 1rem $primary-grey;
+        overflow: hidden;
+    }
+}
 /* width */
 ::-webkit-scrollbar {
     width: 1.5rem;

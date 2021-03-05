@@ -2,13 +2,24 @@
     <%= render "shared/navigation" %>
     <%= render "shared/errors" %>
 
-    <%= form_with(model: [@project, @task], local: true) do |f| %>
-        <div class="tasks__add__container">
-            <div class="tasks__create__field">
-                <%= f.text_field :description, class: "tasks__description__field", placeholder: "Create your new task here!" %>
-    
-                <%= f.submit class: "btn__circle btn__color__yellow__orange" %>
+    <div class="header__content__primary header__mixed__color">
+        <h1>Edit Task</h1>
+    </div>
+
+    <div class="tasks__edit__btns">
+        <%= link_to "Back", user_path(current_user), class: "btn__square btn__color__yellow__orange project__btn" %>
+    </div>
+
+    <div class="tasks__edit__container">
+        <%= form_with(model: [@project, @task], local: true) do |f| %>
+            <div>
+                <div class="tasks__edit__field">
+                    <%= f.text_field :description, class: "tasks__description__field", placeholder: "Create your new task here!" %>
+        
+                    <%= f.submit class: "btn__square btn__color__yellow__orange" %>
+                </div>
             </div>
-        </div>
-    <% end %>
+        <% end %>
+    </div>
+    
 </header>
