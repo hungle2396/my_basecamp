@@ -182,15 +182,23 @@
 }
 
 .project__form {
-  width: 40%;
+  max-width: 500px;
   margin: 0 auto;
-  border: 0.4rem solid rgb(214, 137, 64);
   border-radius: 1rem;
   padding: 2rem 4rem;
-  box-shadow: 1rem 1rem #888888;
-
+  background-image: linear-gradient(to right bottom, rgba($primary-yellow-light, 0.4), rgba($primary-orange-light, 0.7));
+  box-shadow: 0 0 20px $primary-grey;
+  animation: fade_In 1s;
+  
   &__title__container {
     margin-bottom: 2rem;
+  }
+
+  &__textfield, &__textarea {
+    border: none;
+    border-radius: 5px;
+    outline-color: $primary-grey-medium;
+    background-color: rgba($primary-white-2, 0.8)
   }
 
   &__description__container {
@@ -205,6 +213,8 @@
   &__textarea {
     width: 80%;
     padding: 0.5rem 1rem;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 2rem;
   }
 
   &__textarea {

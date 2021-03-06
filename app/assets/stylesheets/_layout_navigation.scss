@@ -22,6 +22,7 @@
         & a:visited {
             text-decoration: none;
             color: $primary-grey-medium;
+            transition: all 0.5s;
         }
     }
 
@@ -32,5 +33,10 @@
         font-weight: 600;
         text-decoration: none;
         color: $primary-grey-dark;
+        transition: all 0.5s;
+    }
+
+    &__base:hover, &__item a:hover {
+        color: $primary-orange-button;
     }
 }

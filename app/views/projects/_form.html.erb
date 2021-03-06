@@ -11,15 +11,14 @@
 <%= form_with(model: @project, local: true) do |f| %>
     <div class="project__form">
         <div class="project__form__title__container">
-            <%= f.label :project_title, class: "project__form__title" %><br>
-            <%= f.text_field :title, class: "project__form__textfield" %>
+            <%= f.label :project_title %><br>
+            <%= f.text_field :title, class: "project__form__textfield", placeholder: "Enter the project's title" %>
         </div>
 
         <div class="project__form__description__container">
             <%= f.label :project_description, class: "project__form__title" %><br>
-            <%= f.text_area :description, class: "project__form__textarea" %>
+            <%= f.text_area :description, class: "project__form__textarea", placeholder: "Enter the project's description" %>
         </div>
         <%= f.submit class: "btn__circle btn__color__yellow__orange project__form__submit" %>
     </div>
-        
 <% end %>
