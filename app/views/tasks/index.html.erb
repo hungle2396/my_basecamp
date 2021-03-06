@@ -10,26 +10,26 @@
             <div class="header__content__primary header__mixed__color">
                 <h1>Tasks</h1>
             </div>
-            
+
             <div class="tasks__container">
                 <%= render "task_form" %>
-                
+
                 <div class="tasks__list__container">
                     <ul class="tasks__list">
                         <% @project_tasks.each do |task| %>
-                            <li class="tasks__item">
-                                <%= task.description %>
+                        <li class="tasks__item">
+                            <%= task.description %>
 
-                                <div class="tasks__item__configuration">
-                                    <%= link_to edit_project_task_path(task_id: task.id, id: @project.id) do %>
-                                        <%= inline_svg_tag "pencil.svg", class: "comments_edit_svg" %>
-                                    <% end %>
+                            <div class="tasks__item__configuration">
+                                <%= link_to edit_project_task_path(task_id: task.id, id: @project.id) do %>
+                                <%= inline_svg_tag "pencil.svg", class: "comments_edit_svg" %>
+                                <% end %>
 
-                                    <%= link_to project_task_path(task_id: task.id, id: @project.id),method: :delete, data: { confirm: "Are you sure?" } do %>
-                                        <%= inline_svg_tag "trash.svg", class: "comments_destroy_svg" %>
-                                    <% end %>
-                                </div>
-                            </li>
+                                <%= link_to project_task_path(task_id: task.id, id: @project.id),method: :delete, data: { confirm: "Are you sure?" } do %>
+                                <%= inline_svg_tag "trash.svg", class: "comments_destroy_svg" %>
+                                <% end %>
+                            </div>
+                        </li>
                         <% end %>
                     </ul>
                 </div>
@@ -43,38 +43,40 @@
                 </div>
 
                 <% if @this_user.is_admin == true %>
-                    <% @groups.each do |group| %>
-                    <div class="project__user">
-                        <% if group.is_admin == true %>
-                        <%= inline_svg_tag "thinking.svg", class: "project__user__svg" %>
-                        <h3 class="project__user__name"><%= group.user.first_name %> [admin]</h3>
-                        <% else %>
-                        <%= inline_svg_tag "smiling-face.svg", class: "project__user__svg" %>
-                        <h3 class="project__user__name"><%= group.user.first_name %></h3>
-
-                        <%= link_to(project_invitation_path(project_id: @project.id, group_id: group.id, user_id: group.user.id), method: :delete, data: { comfirm: "are you sure to remove this user from the project?" }) do %>
-                        <%= inline_svg_tag "block.svg", class: "project__user__svg" %>
-                        <% end %>
-
-
-                        <% end %>
-                    </div>
-                    <% end %>
+                <% @groups.each do |group| %>
+                <div class="project__user">
+                    <% if group.is_admin == true %>
+                    <%= inline_svg_tag "thinking.svg", class: "project__user__svg" %>
+                    <h3 class="project__user__name"><%= group.user.first_name %> [admin]</h3>
                     <% else %>
-                    <% @groups.each do |group| %>
-                    <div class="project__user">
-                        <% if group.is_admin == true %>
-                        <%= inline_svg_tag "thinking.svg", class: "project__user__svg" %>
-                        <h3 class="project__user__name"><%= group.user.first_name %> [admin]</h3>
-                        <% else %>
-                        <%= inline_svg_tag "smiling-face.svg", class: "project__user__svg" %>
-                        <h3 class="project__user__name"><%= group.user.first_name %></h3>
-                        <% end %>
-                    </div>
-                    <% end %>
+                    <%= inline_svg_tag "smiling-face.svg", class: "project__user__svg" %>
+                    <h3 class="project__user__name"><%= group.user.first_name %></h3>
+
+
+                    <%= link_to(group_path(project_id: @project.id, id: group.id, user_id: group.user.id), method: :delete, data: { comfirm: "are you sure to remove this user from the project?" }) do %>
+                    <%= inline_svg_tag "block.svg", class: "project__user__svg" %>
                     <% end %>
 
+
+
+                    <% end %>
                 </div>
+                <% end %>
+                <% else %>
+                <% @groups.each do |group| %>
+                <div class="project__user">
+                    <% if group.is_admin == true %>
+                    <%= inline_svg_tag "thinking.svg", class: "project__user__svg" %>
+                    <h3 class="project__user__name"><%= group.user.first_name %> [admin]</h3>
+                    <% else %>
+                    <%= inline_svg_tag "smiling-face.svg", class: "project__user__svg" %>
+                    <h3 class="project__user__name"><%= group.user.first_name %></h3>
+                    <% end %>
+                </div>
+                <% end %>
+                <% end %>
+
+            </div>
         </div>
     </div>
 </header>

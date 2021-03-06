@@ -40,6 +40,8 @@ Rails.application.routes.draw do
     end
   end
 
+
+  resources :groups, only: [:create, :destroy]
   resources :chatrooms, only: [:index, :show]
   resources :chatmessages, only: [:create, :update, :delete, :edit]
   
