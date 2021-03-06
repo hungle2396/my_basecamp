@@ -1,9 +1,11 @@
+<%if @group.can_update || @group.can_write || @group.is_admin%>
 <%= form_with scope: :task, url: project_tasks_path do |f| %>
-    <div class="tasks__add__container">
-        <div class="tasks__create__field">
-            <%= f.text_field :description, class: "tasks__description__field", placeholder: "Create your new task here!" %>
+<div class="tasks__add__container">
+    <div class="tasks__create__field">
+        <%= f.text_field :description, class: "tasks__description__field", placeholder: "Create your new task here!" %>
 
-            <%= f.submit "Create Task", class: "btn__circle btn__color__yellow__orange" %>
-        </div>
+        <%= f.submit "Create Task", class: "btn__circle btn__color__yellow__orange" %>
     </div>
+</div>
 <% end %>
+<%end%>
