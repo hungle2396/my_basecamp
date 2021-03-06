@@ -41,19 +41,6 @@
 
                     <%= check_box_tag 'permitions[]', 'delete' %>
                     <%= label_tag 'permition_delete', 'Delete' %>
-                    <%
-=begin%>
-                    <div class="field">
-                        <%= f.label "Permitions" %><br />
-                        <%= f.collection_check_boxes :permition_ids, Permition.all, :id, :name do |b| %>
-                        <div>
-                            <%= b.check_box %>
-                            <%= b.label %>
-                        </div>
-                        <% end %>
-                    </div>
-                    <%
-=end%>
 
                     <div class="invitation__btn__container">
                         <%= f.submit "Add user", class: "btn__medium btn__color__yellow__orange btn__animation__expand" %>

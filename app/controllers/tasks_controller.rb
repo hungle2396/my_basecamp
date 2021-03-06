@@ -7,6 +7,7 @@ class TasksController < ApplicationController
         @project_tasks = @project.tasks
         @this_user = Group.find_by(user_id: current_user.id)
         @groups = Group.where(project_id: @project.id)
+        @group = @project.groups.find_by(params[:project_id])
     end
 
     def create
@@ -27,7 +28,13 @@ class TasksController < ApplicationController
 
     def edit
         @project = Project.find(params[:project_id])
-        @task = Task.find(params[:task_id])
+        @group = @project.groups.find_by(params[:project_id])
+        if @group.can_update
+            @task = Task.find(params[:task_id])
+        else
+            flash[:alert] = "you can't have update rights"
+            redirect_to project_tasks_path
+        end
     end
 
     def update

@@ -20,21 +20,23 @@ class InvitationsController < ApplicationController
             group = Group.new(user_id: user.id, project_id: @project.id)
             @permitions = params[:permitions]
             puts "BEFORE PERMITION IF"
-            if @permitions.include? "write"
-                puts "INSIDE PERMITION write"
-                group.can_write = true
-            end
-            if @permitions.include? "read"
-                puts "INSIDE PERMITION read"
-                group.can_read = true
-            end
-            if @permitions.include? "update"
-                puts "INSIDE PERMITION update"
-                group.can_update = true
-            end
-            if @permitions.include? "delete"
-                puts "INSIDE PERMITION delete"
-                group.can_delete = true
+            if @permitions != nil
+                if @permitions.include? "write"
+                    puts "INSIDE PERMITION write"
+                    group.can_write = true
+                end
+                if @permitions.include? "read"
+                    puts "INSIDE PERMITION read"
+                    group.can_read = true
+                end
+                if @permitions.include? "update"
+                    puts "INSIDE PERMITION update"
+                    group.can_update = true
+                end
+                if @permitions.include? "delete"
+                    puts "INSIDE PERMITION delete"
+                    group.can_delete = true
+                end
             end
 
             if params[:role] == "admin"
@@ -53,13 +55,13 @@ class InvitationsController < ApplicationController
         end
     end
 
-    def destroy
-        project = Project.find(params[:project_id])
-        group = Group.find_by(user_id: params[:user_id], project_id: params[:project_id])
+    # def destroy
+    #     project = Project.find(params[:project_id])
+    #     group = Group.find_by(user_id: params[:user_id], project_id: params[:project_id])
 
-        if group.destroy
-            flash[:notice] = "Removed user successfully"  
-            redirect_to project_path(project)
-        end
-    end
+    #     if group.destroy
+    #         flash[:notice] = "Removed user successfully"  
+    #         redirect_to project_path(project)
+    #     end
+    # end
 end

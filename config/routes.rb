@@ -29,7 +29,7 @@ Rails.application.routes.draw do
       post :destroy
     end
 
-    resources :invitations, only: [:new, :create, :destroy]
+    resources :invitations, only: [:new, :create]
     resources :discussions
     resources :tasks
   end

@@ -21,9 +21,11 @@
                             <%= task.description %>
 
                             <div class="tasks__item__configuration">
+                                <%if @group.can_update || @group.is_admin%>
                                 <%= link_to edit_project_task_path(task_id: task.id, id: @project.id) do %>
                                 <%= inline_svg_tag "pencil.svg", class: "comments_edit_svg" %>
                                 <% end %>
+                                <%end%>
 
                                 <%= link_to project_task_path(task_id: task.id, id: @project.id),method: :delete, data: { confirm: "Are you sure?" } do %>
                                 <%= inline_svg_tag "trash.svg", class: "comments_destroy_svg" %>
