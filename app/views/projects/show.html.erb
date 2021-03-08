@@ -71,15 +71,6 @@
                     <%= link_to(group_path(project_id: @project.id, id: group.id, user_id: group.user.id), method: :delete, data: { comfirm: "are you sure to remove this user from the project?" }) do %>
                     <%= inline_svg_tag "block.svg", class: "project__user__svg" %>
                     <% end %>
-                    <%
-=begin%>
-                    <%= link_to(project_invitation_path(project_id: @project.id, group_id: group.id, user_id: group.user.id), method: :delete, data: { comfirm: "are you sure to remove this user from the project?" }) do %>
-                    <%= inline_svg_tag "block.svg", class: "project__user__svg" %>
-                    <% end %>
-                    <%
-=end%>
-
-
                     <% end %>
                 </div>
                 <% end %>

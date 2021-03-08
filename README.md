@@ -18,8 +18,6 @@ go to https://basecamp-17.herokuapp.com
 
 **it happens on main branch**  
 $ heroku login  
-$
-$
 $ git add .  
 $ git commit -am "make it better"  
 $ git push heroku main  
@@ -33,5 +31,3 @@ $ heroku run rails db:migrate
 - you can create projects
 - inside projects you can create discutions, attachments, and todo list
 - you can use a chatroom inside a project
-
-test

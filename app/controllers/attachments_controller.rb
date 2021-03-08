@@ -7,7 +7,7 @@ class AttachmentsController < ApplicationController
     def create
         @project = Project.find(params[:project_id])
         if params[:project] != nil
-            @project.uploads.attach(params[:project][:uploads])
+            @project.uploads.attach(project_params[:uploads])
             @project.save()
         else
             flash[:alert] = "Please choose a file before submit!"
@@ -20,5 +20,12 @@ class AttachmentsController < ApplicationController
         @upload = ActiveStorage::Attachment.find(params[:attachment_id])
         @upload.purge
         redirect_to project_attachments_path
+    end
+
+    private
+
+    def project_params
+        
+        params.require(:project).permit(uploads: [])
     end
   end
