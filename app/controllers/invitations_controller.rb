@@ -15,30 +15,24 @@ class InvitationsController < ApplicationController
     def create
         @project = Project.find(params[:project_id])
         user = User.find_by(email: params[:email])
-        puts "#{@project.users} EXISTS"
+
         if @project.users.include?(user)
-            puts "EXISTS"
             flash[:alert] = "This user already exists"
             redirect_to project_path(@project)
         elsif user.present?
             group = Group.new(user_id: user.id, project_id: @project.id)
             @permitions = params[:permitions]
-            puts "BEFORE PERMITION IF"
             if @permitions != nil
                 if @permitions.include? "write"
-                    puts "INSIDE PERMITION write"
                     group.can_write = true
                 end
                 if @permitions.include? "read"
-                    puts "INSIDE PERMITION read"
                     group.can_read = true
                 end
                 if @permitions.include? "update"
-                    puts "INSIDE PERMITION update"
                     group.can_update = true
                 end
                 if @permitions.include? "delete"
-                    puts "INSIDE PERMITION delete"
                     group.can_delete = true
                 end
             end
