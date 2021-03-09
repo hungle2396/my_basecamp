@@ -75,7 +75,7 @@
         background-color: #fff;
         border-radius: 2rem;
         box-shadow: 0 0 15px $primary-grey;
-        overflow: auto;
+        overflow-y: scroll;
     }
 
     &__header {
