@@ -22,6 +22,7 @@
 
         animation: slide_Up 1s ease-in;
         -webkit-animation: slide_Up 1s ease-in;
+        -moz-animation: slide_Up 1s ease-in;
     }
 
     &__template::after {
