@@ -32,7 +32,7 @@ class TasksController < ApplicationController
         if @group.can_update || @group.is_admin
             @task = Task.find(params[:task_id])
         else
-            flash[:alert] = "you can't have update rights"
+            flash[:alert] = "you don't have update rights"
             redirect_to project_tasks_path
         end
     end
