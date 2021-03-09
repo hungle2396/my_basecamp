@@ -11,7 +11,6 @@
         text-decoration: none;
         border: 2px solid #d68940;
         border-radius: 10rem;
-
     }
 
     &__normal,
@@ -55,6 +54,9 @@
         // Change for the <button> element
         border: none;
         cursor: pointer;
+        -webkit-animation: fade_In 0.5s ease-in;
+        -moz-animation: fade_In 0.5s ease-in;
+        animation: fade_In 0.5s ease-in;
     }
 
     &__circle {
