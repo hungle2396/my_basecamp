@@ -13,7 +13,6 @@ class InvitationsController < ApplicationController
     end
 
     def create
-        byebug
         @project = Project.find(params[:project_id])
         user = User.find_by(email: params[:email])
 
@@ -23,7 +22,7 @@ class InvitationsController < ApplicationController
         elsif user.present?
             group = Group.new(user_id: user.id, project_id: @project.id)
             @permitions = params[:permitions]
-            p @permitions
+
             if @permitions != nil
                 if @permitions.include? "write"
                     group.can_write = true
