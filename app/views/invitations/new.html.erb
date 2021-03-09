@@ -29,19 +29,19 @@
                             <%= f.radio_button :role, "normal user" %>
                         </div>
                     </div>
+                    <div class="invitation__checkboxes__container">
+                        <%= check_box_tag 'permitions[]', 'read' %>
+                        <%= label_tag 'permition_read', 'Read' %>
 
-                    <%= check_box_tag 'permitions[]', 'read' %>
-                    <%= label_tag 'permition_read', 'Read' %>
+                        <%= check_box_tag 'permitions[]', 'write' %>
+                        <%= label_tag 'permition_write', 'Write' %>
 
-                    <%= check_box_tag 'permitions[]', 'write' %>
-                    <%= label_tag 'permition_write', 'Write' %>
+                        <%= check_box_tag 'permitions[]', 'update' %>
+                        <%= label_tag 'permition_update', 'Update' %>
 
-                    <%= check_box_tag 'permitions[]', 'update' %>
-                    <%= label_tag 'permition_update', 'Update' %>
-
-                    <%= check_box_tag 'permitions[]', 'delete' %>
-                    <%= label_tag 'permition_delete', 'Delete' %>
-
+                        <%= check_box_tag 'permitions[]', 'delete' %>
+                        <%= label_tag 'permition_delete', 'Delete' %>
+                    </div>
                     <div class="invitation__btn__container">
                         <%= f.submit "Add user", class: "btn__medium btn__color__yellow__orange btn__animation__expand" %>
                     </div>
