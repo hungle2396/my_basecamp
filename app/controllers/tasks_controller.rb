@@ -29,9 +29,6 @@ class TasksController < ApplicationController
     def edit
         @project = Project.find(params[:project_id])
         @group = @project.groups.find_by(params[:project_id], user_id: current_user.id)
-        puts "GROUP is #{@group.id}"
-        puts "GROUPS are #{@project.groups}"
-        puts "group can update is #{@group.can_update}"
         if @group.can_update || @group.is_admin
             @task = Task.find(params[:task_id])
         else

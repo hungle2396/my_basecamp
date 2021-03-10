@@ -7,19 +7,19 @@
     </div>
 
     <div class="tasks__edit__btns">
-        <%= link_to "Back", user_path(current_user), class: "btn__square btn__color__yellow__orange project__btn" %>
+        <%= link_to "Back", project_tasks_path, class: "btn__square btn__color__yellow__orange project__btn" %>
     </div>
 
     <div class="tasks__edit__container">
         <%= form_with(model: [@project, @task], local: true) do |f| %>
-            <div>
-                <div class="tasks__edit__field">
-                    <%= f.text_field :description, class: "tasks__description__field", placeholder: "Create your new task here!" %>
-        
-                    <%= f.submit class: "btn__square btn__color__yellow__orange" %>
-                </div>
+        <div>
+            <div class="tasks__edit__field">
+                <%= f.text_field :description, class: "tasks__description__field", placeholder: "Create your new task here!" %>
+
+                <%= f.submit class: "btn__square btn__color__yellow__orange" %>
             </div>
+        </div>
         <% end %>
     </div>
-    
+
 </header>
