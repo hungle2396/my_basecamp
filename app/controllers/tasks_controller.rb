@@ -7,7 +7,7 @@ class TasksController < ApplicationController
         @project_tasks = @project.tasks
         @this_user = Group.find_by(user_id: current_user.id)
         @groups = Group.where(project_id: @project.id)
-        @group = @project.groups.find_by(params[:project_id])
+        @group = @project.groups.find(params[:project_id])
     end
 
     def create
