@@ -15,7 +15,6 @@ class InvitationsController < ApplicationController
     def create
         @project = Project.find(params[:project_id])
         user = User.find_by(email: params[:email])
-<<<<<<< HEAD
 
         if @project.users.include?(user)
             flash[:alert] = "This user already joined the project!"
@@ -39,12 +38,6 @@ class InvitationsController < ApplicationController
                 end
             end
 
-=======
-        
-        if user.present?
-            group = Group.new(user_id: user.id, project_id: @project.id)
-            
->>>>>>> d6f9d40ac6001530483baf38e65cf4dbe10e1c82
             if params[:role] == "admin"
                 group.is_admin = true
             else
@@ -60,17 +53,4 @@ class InvitationsController < ApplicationController
             redirect_to project_path(@project)
         end
     end
-<<<<<<< HEAD
-=======
-
-    def destroy
-        project = Project.find(params[:id])
-        group = Group.find_by(user_id: params[:user_id],project_id: params[:project_id])
-
-        if group.destroy
-            flash[:notice] = "Removed user successfully"  
-            redirect_to project_path(project)
-        end
-    end
->>>>>>> d6f9d40ac6001530483baf38e65cf4dbe10e1c82
 end

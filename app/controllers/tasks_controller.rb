@@ -28,7 +28,6 @@ class TasksController < ApplicationController
 
     def edit
         @project = Project.find(params[:project_id])
-<<<<<<< HEAD
         @group = @project.groups.find_by(user_id: current_user.id, project_id: params[:project_id])
         if @group.can_update || @group.is_admin
             @task = Task.find(params[:task_id])
@@ -36,9 +35,6 @@ class TasksController < ApplicationController
             flash[:alert] = "you don't have update rights"
             redirect_to project_tasks_path
         end
-=======
-        @task = Task.find(params[:task_id])
->>>>>>> d6f9d40ac6001530483baf38e65cf4dbe10e1c82
     end
 
     def update
