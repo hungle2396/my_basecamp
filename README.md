@@ -3,6 +3,8 @@
 ## What is Basecamp?
 A useful application that will make sure to keep you and your team up to date and increase productivity by giving you the option to create tasks for your team.
 
+![Basecamp](https://github.com/hungle2396/my_basecamp/blob/main/app/assets/images/basecamp_github.png)
+
 ## To see the Website
 
 go to [basecamp](https://basecamp-17.herokuapp.com)
